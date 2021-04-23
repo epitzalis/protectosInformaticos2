@@ -1,7 +1,7 @@
-package Partida;
+package partida;
 
-import Agentes.Jugador;
-import Utiles.Util;
+import agentes.Jugador;
+import utiles.Util;
 
 public class Monopoly {
 	

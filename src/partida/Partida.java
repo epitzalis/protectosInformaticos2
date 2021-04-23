@@ -1,11 +1,10 @@
-package Partida;
+package partida;
 
-import Agentes.Tablero;
-import Utiles.Util;
+import agentes.Jugador;
+import agentes.Tablero;
+import utiles.Util;
 
 import java.util.Scanner;
-
-import Agentes.Jugador;
 
 public class Partida {
 
@@ -72,6 +71,7 @@ public class Partida {
     			jugadorActual.nuevaPosicion(cantidadTiradaDados);
     			String[] nuevaCasilla = Tablero.getCasilla(jugadorActual.getPosicion());
     			System.out.println("Has caido en la casilla: " + nuevaCasilla[1]);
+    			//TODO
     			
     			
     			
