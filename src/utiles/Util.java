@@ -2,13 +2,40 @@ package utiles;
 
 import java.util.Scanner;
 
+import agentes.Jugador;
+
 public class Util {
+	
+	static final int Dinero_inicial = 10000;
+	static final int Pos_inicial = 1;
 	
 	public static int dados() {
 		int resultado;
 		resultado = (int)(Math.random()*7 + 1) + (int)(Math.random()*7 + 1); 
 		return resultado;
 	}
+	
+    public static Jugador[] crearJugador(int numj) {
+    	
+    	Jugador jugadores [] = new Jugador[numj];	
+    	
+    	if(numj >=2 & numj<=8) {
+	    	for(int i =0 ; i < numj; i++) {
+
+	    		String nombre;
+	    		nombre = "Jugador " + (i + 1);
+
+	    		String[][] Propiedades= null;
+	    		String[] Cartas = null;
+	    		
+	    		jugadores[i] = new Jugador(nombre, Dinero_inicial, Pos_inicial, Propiedades, Cartas );
+	    		   		
+	    	}
+		}else {
+			System.out.println("Error el numero de jugadores no es correcto");
+		};
+		return jugadores;
+    } 
 	
 	public static int pedirNumeroJugadores() {
 		System.out.println("Cuantos jugadores sois (entre 2 y 8): ");

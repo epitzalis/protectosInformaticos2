@@ -43,9 +43,9 @@ public class Partida {
 		this.jugadorActual().mostrarPosicion();
 	}
 	
-	public String[][] PropiedadesJActual() {
-		return this.jugadorActual().getPropiedades();
-	}
+//	public String[][] PropiedadesJActual() {
+//		return this.jugadorActual().getPropiedades();
+//	}
 	
 	public void cambiarTurno() {
 		if(turno == this.jugadores.length -1) {
@@ -55,9 +55,39 @@ public class Partida {
 		}
 	}
 	
+	public void  accion(String[] nuevaCasilla, Jugador jugadorActual) {
+		String nombreCasilla = nuevaCasilla[1];
+		// TODO Continuar en casillas
+		if (nombreCasilla.contains("Propiedad")) {
+			
+		} else if (nombreCasilla.contains("Estacion")) {
+			
+		} else if (nombreCasilla.equals("Salida")) {
+			
+		} else if (nombreCasilla.equals("Caja comunitaria")) {
+			
+		} else if (nombreCasilla.equals("Suerte")) {
+			
+		} else if (nombreCasilla.equals("Carcel")) {
+			
+		} else if (nombreCasilla.equals("Compania electricidad")) {
+			
+		} else if (nombreCasilla.equals("Compania del agua")) {
+			
+		} else if (nombreCasilla.equals("Estacionamiento Gratuito")) {
+			
+		} else if (nombreCasilla.equals("Ve a la Carcel")) {
+			
+		} else if (nombreCasilla.equals("Impuestos de lujo")) {
+			
+		} else if (nombreCasilla.equals("Impuestos sobre el Capital")) {
+			
+		}
+	}
+	
 	public void  comenzar() {
 		System.out.println("Va a comenzar la partida con " + this.getTotalJugadores() + " jugadores.");
-//		String[][] casillas = Tablero.getCasillas();
+
 		while(isFinalizada == false) {
 			Jugador jugadorActual = this.jugadorActual();
 			
@@ -72,10 +102,7 @@ public class Partida {
     			String[] nuevaCasilla = Tablero.getCasilla(jugadorActual.getPosicion());
     			System.out.println("Has caido en la casilla: " + nuevaCasilla[1]);
     			//TODO
-    			//this.accion //void lla a if grande que ese if despues llama a casilla para que haga lo que toque
-    			
-    			
-    			
+    			this.accion(nuevaCasilla, jugadorActual);
     			
     			cambiarTurno();
     			break;

@@ -5,7 +5,7 @@ public class Jugador {
 	private String Nombre;
 	private int Dinero;
 	private int Posicion;
-	private String[][] Propiedades;
+//	private String[][] Propiedades;
 	private String[] Cartas;
 	
 	//******************************************************** Metodos **********************************************************
@@ -21,7 +21,7 @@ public class Jugador {
 		this.Posicion = posInicial;
 		//System.out.println("Tu Posici�n es " + posicion);
 		
-		this.Propiedades = propiedades;
+//		this.Propiedades = propiedades;
 		
 		//System.out.println("Tus propiedades son: " );
 		//for(int i=0;i<propiedades.length;i++) {
@@ -76,9 +76,9 @@ public class Jugador {
 	public int getPosicion() {
 		return Posicion;
 	}
-	public String[][] getPropiedades() {
-		return Propiedades;
-	}
+//	public String[][] getPropiedades() {
+//		return Propiedades;
+//	}
 	public String[] getcartas() {
 		return Cartas;
 	}
@@ -92,9 +92,9 @@ public class Jugador {
 	public void setPosicion(int posicion) {
 		Posicion = posicion;
 	}
-	public void setPropiedades(String[][] propiedades) {
-		Propiedades = propiedades;
-	}
+//	public void setPropiedades(String[][] propiedades) {
+//		Propiedades = propiedades;
+//	}
 	public void setCartas(String[] cartas) {
 		Cartas = cartas;
 	}
