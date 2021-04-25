@@ -35,7 +35,7 @@ public class Util {
 	public static int pedirOpcionesInicio() {
     	System.out.println("Bienvenido al Monopoly");
     	
-    	System.out.println("Selecciona una opci�n");
+    	System.out.println("Selecciona una opcion");
     	
     	System.out.println("1- Nueva partida");
     	System.out.println("2- Cargar partida ");
@@ -62,13 +62,4 @@ public class Util {
 		return numeroOpcion;
 	}
 	
-	
-//	public int nuevaPos(int pos) {
-//	
-//		int num = dados();
-//		
-//		int Npos = pos + num;
-//		
-//		return Npos;
-//	}
 }

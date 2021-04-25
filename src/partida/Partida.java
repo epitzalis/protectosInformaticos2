@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Partida {
 
-	private int ronda;
+//	private int ronda;
 //	private Tablero tablero;
 	private int turno;
 	private Jugador[] jugadores;
@@ -18,14 +18,14 @@ public class Partida {
 		
 		this.jugadores = jugadores;
 		final int dineroMinimo = 0;
-		this.ronda = 1;
+//		this.ronda = 1;
 		
 	}
 	
-	public int  getRonda() {
-		return this.ronda;
-	}
-	
+//	public int  getRonda() {
+//		return this.ronda;
+//	}
+//	
 	public Jugador jugadorActual() {
 		
 		return this.jugadores[this.turno]; //ronda
@@ -61,7 +61,7 @@ public class Partida {
 		while(isFinalizada == false) {
 			Jugador jugadorActual = this.jugadorActual();
 			
-			System.out.println("Es el turno de " + jugadorActual.getNombre() + " elija una opción:");
+			System.out.println("Es el turno de " + jugadorActual.getNombre() + " elija una opcion:");
 			int opcionElejida = this.pedirOpcionesJugador();
 			
 	    	switch(opcionElejida) {
@@ -72,6 +72,8 @@ public class Partida {
     			String[] nuevaCasilla = Tablero.getCasilla(jugadorActual.getPosicion());
     			System.out.println("Has caido en la casilla: " + nuevaCasilla[1]);
     			//TODO
+    			//this.accion //void lla a if grande que ese if despues llama a casilla para que haga lo que toque
+    			
     			
     			
     			
