@@ -1,5 +1,6 @@
 package partida;
 
+import agentes.Casilla;
 import agentes.Jugador;
 import agentes.Tablero;
 import utiles.Util;
@@ -57,11 +58,12 @@ public class Partida {
 	
 	public void  accion(String[] nuevaCasilla, Jugador jugadorActual) {
 		String nombreCasilla = nuevaCasilla[1];
+		String idCasilla = nuevaCasilla[0];
 		// TODO Continuar en casillas
 		if (nombreCasilla.contains("Propiedad")) {
 			System.out.println("estoy en una propiedad");
 			
-			agentes.Casilla.propiedad(nombreCasilla, jugadorActual);
+			Casilla.propiedad(idCasilla, nombreCasilla, jugadorActual);
 			
 		} else if (nombreCasilla.contains("Estacion")) {
 			

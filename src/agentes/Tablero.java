@@ -114,16 +114,40 @@ public class Tablero {
 		Casillas = casillas;
 	}
 	
-	public static String[] getPropiedades(int idCasilla) {
+	public static String[] getPropiedad(String idPropiedad) {
 		boolean esEncontrada = false;
 		int index = 0;
 		for (int i = 0; i < Propiedades.length && esEncontrada == false; i++) {
-			if (idCasilla == Integer.parseInt(Propiedades[i][0]) ) {
+			if (idPropiedad.equals(Propiedades[i][0]) ) {
 				esEncontrada = true;
 				index = i;
 			}
 		}
 		return Propiedades[index];
+	}
+	
+	public static String[] getPropiedad(int idPropiedad) {
+		boolean esEncontrada = false;
+		int index = 0;
+		for (int i = 0; i < Propiedades.length && esEncontrada == false; i++) {
+			if (idPropiedad == Integer.parseInt(Propiedades[i][0]) ) {
+				esEncontrada = true;
+				index = i;
+			}
+		}
+		return Propiedades[index];
+	}
+	
+	public static String[] getCasilla(String idCasilla) {
+		boolean esEncontrada = false;
+		int index = 0;
+		for (int i = 0; i < Casillas.length && esEncontrada == false; i++) {
+			if (idCasilla.equals(Casillas[i][0]) ) {
+				esEncontrada = true;
+				index = i;
+			}
+		}
+		return Casillas[index];
 	}
 	
 	public static String[] getCasilla(int idCasilla) {
