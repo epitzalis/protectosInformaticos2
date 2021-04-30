@@ -59,6 +59,9 @@ public class Partida {
 		String nombreCasilla = nuevaCasilla[1];
 		// TODO Continuar en casillas
 		if (nombreCasilla.contains("Propiedad")) {
+			System.out.println("estoy en una propiedad");
+			
+			agentes.Casilla.propiedad(nombreCasilla, jugadorActual);
 			
 		} else if (nombreCasilla.contains("Estacion")) {
 			
