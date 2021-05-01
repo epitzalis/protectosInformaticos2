@@ -1,5 +1,7 @@
 package agentes;
 
+import java.util.ArrayList;
+
 public class Tablero {
 	
 	 //static Casilla obj = new Casilla();
@@ -165,6 +167,28 @@ public class Tablero {
 			}
 		}
 		return Casillas[index];
+	}
+	
+	public static int getCantidadEstacionesJugador(String nombreJugador) {
+		ArrayList<String> idsEstaciones = new ArrayList<String>();
+		int cantidadEstacionesJugador = 0;
+		int i = 0;
+		
+		// Encuentra los IDs de las estaciones
+		for (i = 0; i < Casillas.length; i++) {
+			if (Casillas[i][1].contains("Estacion")) {
+				idsEstaciones.add(Casillas[i][0]);
+			}
+		}
+		
+		// Con los IDs comprueba cuantas estaciones pertenecen a un jugador
+	    for (i = 0; i < idsEstaciones.size(); i++) {
+	    	if (getPropiedad(idsEstaciones.get(i))[1].equals(nombreJugador)) {
+	    		cantidadEstacionesJugador++;
+			}
+	    }
+		
+		return cantidadEstacionesJugador;
 	}
 	
 }

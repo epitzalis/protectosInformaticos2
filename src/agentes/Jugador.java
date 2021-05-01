@@ -71,9 +71,9 @@ public class Jugador {
 	public String[] getcartas() {
 		return Cartas;
 	}
-	public void setNombre(String nombre) {
-		Nombre = nombre;
-	}
+//	public void setNombre(String nombre) {
+//		Nombre = nombre;
+//	}
 	public void setDinero(int dinero) {
 		Dinero = dinero;
 	}

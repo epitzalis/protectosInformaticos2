@@ -20,8 +20,8 @@ public class Casilla {
 	public static void estacion(String idCasilla, String nombreCasilla, Jugador jugadorActual) {
 		String[] propiedad = Tablero.getPropiedad(idCasilla);
 		
-        if(propiedad[1].equals("Banca")) {
-//        	comprar(idCasilla, nombreCasilla, jugadorActual);
+		if(propiedad[1].equals("Banca") || propiedad[1].equals(jugadorActual.getNombre())) {
+        	comprarEstacion(idCasilla, nombreCasilla, jugadorActual);
         } else if(!propiedad[1].equals(jugadorActual.getNombre())) {	
         	pagarAlquilerEstacion(idCasilla, nombreCasilla, jugadorActual);
         }
@@ -66,7 +66,7 @@ public class Casilla {
     
 	}
 
-	public static void pagarAlquilerPropiedad(String idCasilla, String nombreCasilla, Jugador jugadorActual){
+	public static void pagarAlquilerPropiedad(String idCasilla, String nombreCasilla, Jugador jugadorActual) {
 		
 		String[] propiedad = Tablero.getPropiedad(idCasilla);
 		String[] casilla = Tablero.getCasilla(idCasilla);
@@ -75,17 +75,17 @@ public class Casilla {
         int casas = Integer.parseInt(propiedad[2]);
         int cantidadPagar = 0;  
         		
-        if(casas == 0) {
+        if (casas == 0) {
         	cantidadPagar = Integer.parseInt(casilla[5]);
-        }else if(casas == 1) {
+        } else if (casas == 1) {
         	cantidadPagar = Integer.parseInt(casilla[6]);
-    	}else if(casas == 2) {
+    	} else if (casas == 2) {
     		cantidadPagar = Integer.parseInt(casilla[7]);
-    	}else if(casas == 3) {
+    	} else if (casas == 3) {
     		cantidadPagar = Integer.parseInt(casilla[8]);
-    	}else if(casas == 4) {
+    	} else if (casas == 4) {
     		cantidadPagar = Integer.parseInt(casilla[9]);
-    	}else if(casas == 5) {
+    	} else if (casas == 5) {
     		cantidadPagar = Integer.parseInt(casilla[10]);
     	}     
         System.out.println("Has caido en " + nombreCasilla + " que pertenece al " + propietarioCasilla + ", tienes que pagar " + cantidadPagar);
@@ -93,27 +93,27 @@ public class Casilla {
         aumentarDineroJugador(propietarioCasilla, cantidadPagar);
 	}
 	
-	public static void pagarAlquilerEstacion(String idCasilla, String nombreCasilla, Jugador jugadorActual){
+	public static void comprarEstacion(String idCasilla, String nombreCasilla, Jugador jugadorActual) {
+		
+		
+	}
+	
+	public static void pagarAlquilerEstacion(String idCasilla, String nombreCasilla, Jugador jugadorActual) {
 		
 		String[] propiedad = Tablero.getPropiedad(idCasilla);
 		String[] casilla = Tablero.getCasilla(idCasilla);
+		String propietarioCasilla = propiedad[1];
 		
-        int numEsta = Integer.parseInt(propiedad[2]);
-        int pagar;  
-        		
-        if(numEsta == 0) {
-        	pagar = Integer.parseInt(casilla[3]);
-        	jugadorActual.disminuirDinero(pagar);
-        }else if(numEsta == 1) {
-        	pagar = Integer.parseInt(casilla[4]);
-        	jugadorActual.disminuirDinero(pagar);
-    	}else if(numEsta == 2) {
-    		pagar = Integer.parseInt(casilla[5]);
-    		jugadorActual.disminuirDinero(pagar);
-    	}else if(numEsta == 3) {
-    		pagar = Integer.parseInt(casilla[6]);
-    		jugadorActual.disminuirDinero(pagar);
-    	}                       
+		int cantidadEstacionesPropietario = Tablero.getCantidadEstacionesJugador(propietarioCasilla);
+		int posicionArrayPagar = 1 + cantidadEstacionesPropietario;
+		
+		int cantidadPagar = Integer.parseInt(casilla[posicionArrayPagar]);
+		
+        System.out.println("Has caido en " + nombreCasilla + " que pertenece al " + propietarioCasilla + ",como tiene " + cantidadEstacionesPropietario + 
+        			" tienes que pagar " + cantidadPagar);
+
+        jugadorActual.disminuirDinero(cantidadPagar);
+        aumentarDineroJugador(propietarioCasilla, cantidadPagar);                   
     
 	}
 	
