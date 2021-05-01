@@ -84,32 +84,35 @@ public class Partida {
 		while(isFinalizada == false) {
 			Jugador jugadorActual = this.jugadorActual();
 			
-			System.out.println("Es el turno de " + jugadorActual.getNombre() + " (Dispones de " + jugadorActual.getDinero() + "€), elija una opcion:");
-			int opcionElejida = this.pedirOpcionesJugador();
-			
-	    	switch(opcionElejida) {
-    		case 1: // Tirar datos
-    			int cantidadTiradaDados = Util.dados();
-    			
-    			jugadorActual.nuevaPosicion(cantidadTiradaDados);
-    			String[] nuevaCasilla = Tablero.getCasilla(jugadorActual.getPosicion());
-    			System.out.println("Has caido en la casilla: " + nuevaCasilla[1]);
-    			//TODO
-    			this.accion(nuevaCasilla, jugadorActual);
-    			
-    			cambiarTurno();
-    			break;
-    		case 2: // Guardar Partida
-    			System.out.println("Sin implementar aún");
-    			break;
-    		case 3:
-    			System.out.println("\nSaliste de la partida");
-    			System.exit(0);		
-    			break;
-    		default:
-    			break;
-    		}
-			
+			if (jugadorActual.getDinero() > 0) { // Solo mostrarmos el turno de los jugadores que tienen dinero
+				System.out.println("Es el turno de " + jugadorActual.getNombre() + " (Dispones de " + jugadorActual.getDinero() + "€), elija una opcion:");
+				int opcionElejida = this.pedirOpcionesJugador();
+				
+		    	switch(opcionElejida) {
+	    		case 1: // Tirar datos
+	    			int cantidadTiradaDados = Util.dados();
+	    			
+	    			jugadorActual.nuevaPosicion(cantidadTiradaDados);
+	    			String[] nuevaCasilla = Tablero.getCasilla(jugadorActual.getPosicion());
+	    			System.out.println("Has caido en la casilla: " + nuevaCasilla[1]);
+	    			//TODO
+	    			this.accion(nuevaCasilla, jugadorActual);
+	    			
+	    			cambiarTurno();
+	    			break;
+	    		case 2: // Guardar Partida
+	    			System.out.println("Sin implementar aún");
+	    			break;
+	    		case 3:
+	    			System.out.println("\nSaliste de la partida");
+	    			System.exit(0);		
+	    			break;
+	    		default:
+	    			break;
+	    		}
+			} else {
+				cambiarTurno();
+			}
 
 		}
 		

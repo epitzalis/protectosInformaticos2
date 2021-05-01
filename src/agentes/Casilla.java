@@ -71,28 +71,23 @@ public class Casilla {
 		String[] casilla = Tablero.getCasilla(idCasilla);
 
         int casas = Integer.parseInt(propiedad[2]);
-        int pagar;  
+        int cantidadPagar = 0;  
         		
         if(casas == 0) {
-        	pagar = Integer.parseInt(casilla[5]);
-        	jugadorActual.disminuirDinero(pagar);
+        	cantidadPagar = Integer.parseInt(casilla[5]);
         }else if(casas == 1) {
-        	pagar = Integer.parseInt(casilla[6]);
-        	jugadorActual.disminuirDinero(pagar);
+        	cantidadPagar = Integer.parseInt(casilla[6]);
     	}else if(casas == 2) {
-    		pagar = Integer.parseInt(casilla[7]);
-    		jugadorActual.disminuirDinero(pagar);
+    		cantidadPagar = Integer.parseInt(casilla[7]);
     	}else if(casas == 3) {
-    		pagar = Integer.parseInt(casilla[8]);
-    		jugadorActual.disminuirDinero(pagar);
+    		cantidadPagar = Integer.parseInt(casilla[8]);
     	}else if(casas == 4) {
-    		pagar = Integer.parseInt(casilla[9]);
-    		jugadorActual.disminuirDinero(pagar);
+    		cantidadPagar = Integer.parseInt(casilla[9]);
     	}else if(casas == 5) {
-    		pagar = Integer.parseInt(casilla[10]);
-    		jugadorActual.disminuirDinero(pagar);
+    		cantidadPagar = Integer.parseInt(casilla[10]);
     	}     
-        	
+        System.out.println("Has caido en " + nombreCasilla + ", tienes que pagar " + cantidadPagar);
+        jugadorActual.disminuirDinero(cantidadPagar);
 	}
 	
 	public static void pagarAlquilerEstacion(String idCasilla, String nombreCasilla, Jugador jugadorActual){

@@ -28,7 +28,7 @@ public class Jugador {
 	
 	public boolean disminuirDinero(int menos) {
 		if ((this.Dinero - menos) <= 0) {
-			System.out.println("No tienes dinero suficiente para realizar esa accion");
+			System.out.println(this.Nombre + " queda eliminado de la partida por no poder pagar");
 			return false;
 		} else {
 			this.Dinero = this.Dinero - menos;
