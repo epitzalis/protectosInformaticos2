@@ -56,7 +56,7 @@ public class Partida {
 		if (nombreCasilla.contains("Propiedad")) {
 			Casilla.propiedad(idCasilla, nombreCasilla, jugadorActual);
 		} else if (nombreCasilla.contains("Estacion")) {
-			
+			Casilla.estacion(idCasilla, nombreCasilla, jugadorActual);
 		} else if (nombreCasilla.equals("Salida")) {
 			
 		} else if (nombreCasilla.equals("Caja comunitaria")) {

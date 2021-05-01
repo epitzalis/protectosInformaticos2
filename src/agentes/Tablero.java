@@ -6,6 +6,7 @@ public class Tablero {
 	
 	 //static Casilla obj = new Casilla();
 	//Falta en as casillas propiedades: id	Nombre Precio	CosteCasa	CosteHotel	Alquiler 1CASA	2C	3C	HOTEL
+	static final int precioCompraEstacion = 200;
 	
 	static String[][] Casillas = {
 			{"1", "Salida"}, 

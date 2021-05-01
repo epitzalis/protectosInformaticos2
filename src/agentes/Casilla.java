@@ -57,7 +57,7 @@ public class Casilla {
         }
 		
 		
-		if (numCasas != 5 && Util.pedirConfirmarCompra(nombreCasilla, nombreNuevaAdquisicion, precioCompraCasilla)) {
+		if (numCasas != 5 && Util.pedirConfirmarCompraPropiedad(nombreCasilla, nombreNuevaAdquisicion, precioCompraCasilla)) {
 			if (jugadorActual.disminuirDinero(precioCompraCasilla)) {
 				propiedad[1] = jugadorActual.getNombre();
 				propiedad[2] = String.valueOf(numCasas + 1); // Incrementa en 1 la propiedad
@@ -94,8 +94,15 @@ public class Casilla {
 	}
 	
 	public static void comprarEstacion(String idCasilla, String nombreCasilla, Jugador jugadorActual) {
+		String[] propiedad = Tablero.getPropiedad(idCasilla);
 		
+		int precioCompraCasilla = Tablero.precioCompraEstacion;
 		
+		if (Util.pedirConfirmarCompraEstacion(nombreCasilla, precioCompraCasilla)) {
+			if (jugadorActual.disminuirDinero(precioCompraCasilla)) {
+				propiedad[1] = jugadorActual.getNombre();
+			}
+		} 
 	}
 	
 	public static void pagarAlquilerEstacion(String idCasilla, String nombreCasilla, Jugador jugadorActual) {

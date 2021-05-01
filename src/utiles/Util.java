@@ -115,7 +115,7 @@ public class Util {
 		return numeroOpcion;
 	}
 	
-	public static boolean pedirConfirmarCompra(String nombreCasilla, String nombreNuevaAdquisicion, int precioCompraCasilla) {
+	public static boolean pedirConfirmarCompraPropiedad(String nombreCasilla, String nombreNuevaAdquisicion, int precioCompraCasilla) {
 		    	
     	System.out.println("¿Deseas comprar " + nombreNuevaAdquisicion + " en " + nombreCasilla + " por " + precioCompraCasilla + "€?");
     	
@@ -142,6 +142,41 @@ public class Util {
 		
 		if (numeroOpcion == 1) {
 			System.out.println("Has adquirido un inmueble en " + nombreCasilla);
+			return true;
+		} else {
+			System.out.println("Has decidido no comprar nada");
+			return false;
+		}
+		
+	}
+	
+	public static boolean pedirConfirmarCompraEstacion(String nombreCasilla, int precioCompraCasilla) {
+    	
+    	System.out.println("¿Deseas comprar " + nombreCasilla + " por " + precioCompraCasilla + "€?");
+    	
+    	System.out.println("1- Si");
+    	System.out.println("2- No");
+    	
+    	System.out.println("Escribe una de las opciones (1,2): ");
+		
+		int numeroOpcion = 0;
+		Scanner Pedir = new Scanner(System.in);
+		
+		while (numeroOpcion == 0) {
+			try {
+				numeroOpcion = Integer.parseInt(Pedir.nextLine());
+				if (numeroOpcion < 1 || numeroOpcion > 2 ) {
+					numeroOpcion = 0;
+					System.out.println("Escribe una de las opciones (1,2): ");
+				}
+			} catch (Exception e) {
+				numeroOpcion = 0;
+				System.out.println("Escribe una de las opciones (1,2): ");
+			}
+		}
+		
+		if (numeroOpcion == 1) {
+			System.out.println("Has adquirido " + nombreCasilla);
 			return true;
 		} else {
 			System.out.println("Has decidido no comprar nada");
