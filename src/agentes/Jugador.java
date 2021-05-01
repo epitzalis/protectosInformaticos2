@@ -32,7 +32,7 @@ public class Jugador {
 			return false;
 		} else {
 			this.Dinero = this.Dinero - menos;
-			System.out.println("Ha disminuido su dinero a " + this.Dinero + "€");
+			System.out.println(this.Nombre + " ha disminuido su dinero a " + this.Dinero + "€");
 			return true;
 		}
 	}

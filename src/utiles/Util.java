@@ -6,8 +6,8 @@ import agentes.Jugador;
 
 public class Util {
 	
-	static final int Dinero_inicial = 10000;
-	static final int Pos_inicial = 1;
+	static final int DineroInicial = 10000;
+	static final int PosInicial = 1;
 	
 	public static int dados() {
 		int resultado;
@@ -27,7 +27,7 @@ public class Util {
 
 	    		String[] Cartas = null;
 	    		
-	    		jugadores[i] = new Jugador(nombre, Dinero_inicial, Pos_inicial, Cartas );
+	    		jugadores[i] = new Jugador(nombre, DineroInicial, PosInicial, Cartas );
 	    		   		
 	    	}
 		}else {
@@ -88,10 +88,35 @@ public class Util {
 		return numeroOpcion;
 	}
 	
-	public static boolean pedirConfirmarCompra(String nombreCasilla, String nombreNuevaAdquisicion, int precioCompraCasilla) {
+	public static int pedirOpcionesJugador() {
+		System.out.println("Opciones");
+		System.out.println("1- Tirar datos");
+		System.out.println("2- Guardar Partida");
+		System.out.println("3- Exit");
 		
-//		String stringPrecioCompraCasilla = String.valueOf(precioCompraCasilla);
-    	
+		System.out.println("Escribe una de las opciones (1,2,3): ");
+		
+		int numeroOpcion = 0;
+		Scanner Pedir = new Scanner(System.in);
+		
+		while (numeroOpcion == 0) {
+			try {
+				numeroOpcion = Integer.parseInt(Pedir.nextLine());
+				if (numeroOpcion < 1 || numeroOpcion > 3 ) {
+					numeroOpcion = 0;
+					System.out.println("Debe introducir un número del 1 al 3");
+				}
+			} catch (Exception e) {
+				numeroOpcion = 0;
+				System.out.println("Debe introducir un número del 1 al 3");
+			}
+		}
+		
+		return numeroOpcion;
+	}
+	
+	public static boolean pedirConfirmarCompra(String nombreCasilla, String nombreNuevaAdquisicion, int precioCompraCasilla) {
+		    	
     	System.out.println("¿Deseas comprar " + nombreNuevaAdquisicion + " en " + nombreCasilla + " por " + precioCompraCasilla + "€?");
     	
     	System.out.println("1- Si");

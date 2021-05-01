@@ -10,39 +10,41 @@ import java.util.Scanner;
 public class Partida {
 
 	private int turno;
-	private Jugador[] jugadores;
+	static private Jugador[] jugadores;
 	private boolean isFinalizada = false;
 	
 	public Partida(Jugador[] jugadores){
-		
 		this.jugadores = jugadores;
-		final int dineroMinimo = 0;
-		
 	}
 	
-
-	public Jugador jugadorActual() {
+	private Jugador jugadorActual() {
 		
 		return this.jugadores[this.turno]; //ronda
 	}
 	
-	public int  getTotalJugadores() {
+	private int  getTotalJugadores() {
 		return this.jugadores.length;
 	}
 	
-	public void mostrarRonda() {
-		System.out.println("Es el turno del jugador: " + this.jugadorActual().getNombre());
-	}
+//	private void mostrarPosicionJugadorActual() {
+//		this.jugadorActual().mostrarPosicion();
+//	}
 	
-	public void mostrarPosicionJugadorActual() {
-		this.jugadorActual().mostrarPosicion();
-	}
-	
-	public void cambiarTurno() {
+	private void cambiarTurno() {
 		if(turno == this.jugadores.length -1) {
 			turno = 0;
 		}else {
 			turno ++;
+		}
+	}
+	
+	public static void aumentarDineroJugador(String nombreJugador, int cantidad) {
+		for (int i = 0; i < jugadores.length; i++) {
+			if (jugadores[i].getNombre().equals(nombreJugador)) {
+				int totalDinero = jugadores[i].getDinero() + cantidad;
+				jugadores[i].setDinero(totalDinero);
+				System.out.println("El dinero de " + jugadores[i].getNombre() + " ha aumentado a "+ totalDinero + "€");
+			}
 		}
 	}
 	
@@ -85,8 +87,8 @@ public class Partida {
 			Jugador jugadorActual = this.jugadorActual();
 			
 			if (jugadorActual.getDinero() > 0) { // Solo mostrarmos el turno de los jugadores que tienen dinero
-				System.out.println("Es el turno de " + jugadorActual.getNombre() + " (Dispones de " + jugadorActual.getDinero() + "€), elija una opcion:");
-				int opcionElejida = this.pedirOpcionesJugador();
+				System.out.println("\nEs el turno de " + jugadorActual.getNombre() + " (Dispones de " + jugadorActual.getDinero() + "€), elija una opcion:");
+				int opcionElejida = Util.pedirOpcionesJugador();
 				
 		    	switch(opcionElejida) {
 	    		case 1: // Tirar datos
@@ -118,31 +120,6 @@ public class Partida {
 		
 	}
 	
-	private int pedirOpcionesJugador() {
-		System.out.println("Opciones");
-		System.out.println("1- Tirar datos");
-		System.out.println("2- Guardar Partida");
-		System.out.println("3- Exit");
-		
-		System.out.println("Escribe una de las opciones (1,2,3): ");
-		
-		int numeroOpcion = 0;
-		Scanner Pedir = new Scanner(System.in);
-		
-		while (numeroOpcion == 0) {
-			try {
-				numeroOpcion = Integer.parseInt(Pedir.nextLine());
-				if (numeroOpcion < 1 || numeroOpcion > 3 ) {
-					numeroOpcion = 0;
-					System.out.println("Debe introducir un número del 1 al 3");
-				}
-			} catch (Exception e) {
-				numeroOpcion = 0;
-				System.out.println("Debe introducir un número del 1 al 3");
-			}
-		}
-		
-		return numeroOpcion;
-	}
+
 	
 }

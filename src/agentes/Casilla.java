@@ -1,5 +1,6 @@
 package agentes;
 
+import partida.Partida;
 import utiles.Util;
 
 public class Casilla {
@@ -69,6 +70,7 @@ public class Casilla {
 		
 		String[] propiedad = Tablero.getPropiedad(idCasilla);
 		String[] casilla = Tablero.getCasilla(idCasilla);
+		String propietarioCasilla = propiedad[1];
 
         int casas = Integer.parseInt(propiedad[2]);
         int cantidadPagar = 0;  
@@ -86,8 +88,9 @@ public class Casilla {
     	}else if(casas == 5) {
     		cantidadPagar = Integer.parseInt(casilla[10]);
     	}     
-        System.out.println("Has caido en " + nombreCasilla + ", tienes que pagar " + cantidadPagar);
+        System.out.println("Has caido en " + nombreCasilla + " que pertenece al " + propietarioCasilla + ", tienes que pagar " + cantidadPagar);
         jugadorActual.disminuirDinero(cantidadPagar);
+        aumentarDineroJugador(propietarioCasilla, cantidadPagar);
 	}
 	
 	public static void pagarAlquilerEstacion(String idCasilla, String nombreCasilla, Jugador jugadorActual){
@@ -113,4 +116,9 @@ public class Casilla {
     	}                       
     
 	}
+	
+	private static void aumentarDineroJugador(String nombreJugador, int cantidad) {
+		Partida.aumentarDineroJugador(nombreJugador, cantidad);
+	}
+
 }
