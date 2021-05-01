@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 public class Partida {
 
-//	private int ronda;
-//	private Tablero tablero;
 	private int turno;
 	private Jugador[] jugadores;
 	private boolean isFinalizada = false;
@@ -19,14 +17,10 @@ public class Partida {
 		
 		this.jugadores = jugadores;
 		final int dineroMinimo = 0;
-//		this.ronda = 1;
 		
 	}
 	
-//	public int  getRonda() {
-//		return this.ronda;
-//	}
-//	
+
 	public Jugador jugadorActual() {
 		
 		return this.jugadores[this.turno]; //ronda
@@ -44,10 +38,6 @@ public class Partida {
 		this.jugadorActual().mostrarPosicion();
 	}
 	
-//	public String[][] PropiedadesJActual() {
-//		return this.jugadorActual().getPropiedades();
-//	}
-	
 	public void cambiarTurno() {
 		if(turno == this.jugadores.length -1) {
 			turno = 0;
@@ -60,11 +50,9 @@ public class Partida {
 		String nombreCasilla = nuevaCasilla[1];
 		String idCasilla = nuevaCasilla[0];
 		// TODO Continuar en casillas
+		System.out.println("Has caido en " + nombreCasilla);
 		if (nombreCasilla.contains("Propiedad")) {
-			System.out.println("estoy en una propiedad");
-			
 			Casilla.propiedad(idCasilla, nombreCasilla, jugadorActual);
-			
 		} else if (nombreCasilla.contains("Estacion")) {
 			
 		} else if (nombreCasilla.equals("Salida")) {
@@ -96,7 +84,7 @@ public class Partida {
 		while(isFinalizada == false) {
 			Jugador jugadorActual = this.jugadorActual();
 			
-			System.out.println("Es el turno de " + jugadorActual.getNombre() + " elija una opcion:");
+			System.out.println("Es el turno de " + jugadorActual.getNombre() + " (Dispones de " + jugadorActual.getDinero() + "€), elija una opcion:");
 			int opcionElejida = this.pedirOpcionesJugador();
 			
 	    	switch(opcionElejida) {
@@ -153,8 +141,5 @@ public class Partida {
 		
 		return numeroOpcion;
 	}
-	
-	
-	
 	
 }

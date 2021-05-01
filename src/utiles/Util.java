@@ -25,10 +25,9 @@ public class Util {
 	    		String nombre;
 	    		nombre = "Jugador " + (i + 1);
 
-	    		String[][] Propiedades= null;
 	    		String[] Cartas = null;
 	    		
-	    		jugadores[i] = new Jugador(nombre, Dinero_inicial, Pos_inicial, Propiedades, Cartas );
+	    		jugadores[i] = new Jugador(nombre, Dinero_inicial, Pos_inicial, Cartas );
 	    		   		
 	    	}
 		}else {
@@ -87,6 +86,43 @@ public class Util {
 		}
 		
 		return numeroOpcion;
+	}
+	
+	public static boolean pedirConfirmarCompra(String nombreCasilla, String nombreNuevaAdquisicion, int precioCompraCasilla) {
+		
+//		String stringPrecioCompraCasilla = String.valueOf(precioCompraCasilla);
+    	
+    	System.out.println("¿Deseas comprar " + nombreNuevaAdquisicion + " en " + nombreCasilla + " por " + precioCompraCasilla + "€?");
+    	
+    	System.out.println("1- Si");
+    	System.out.println("2- No");
+    	
+    	System.out.println("Escribe una de las opciones (1,2): ");
+		
+		int numeroOpcion = 0;
+		Scanner Pedir = new Scanner(System.in);
+		
+		while (numeroOpcion == 0) {
+			try {
+				numeroOpcion = Integer.parseInt(Pedir.nextLine());
+				if (numeroOpcion < 1 || numeroOpcion > 2 ) {
+					numeroOpcion = 0;
+					System.out.println("Escribe una de las opciones (1,2): ");
+				}
+			} catch (Exception e) {
+				numeroOpcion = 0;
+				System.out.println("Escribe una de las opciones (1,2): ");
+			}
+		}
+		
+		if (numeroOpcion == 1) {
+			System.out.println("Has adquirido un inmueble en " + nombreCasilla);
+			return true;
+		} else {
+			System.out.println("Has decidido no comprar nada");
+			return false;
+		}
+		
 	}
 	
 }

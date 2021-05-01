@@ -47,48 +47,53 @@ public class Tablero {
 			{"39", "Impuestos de lujo"},
 			{"40", "Propiedad 22","400","200","400","50","200","600","1400","1700","2000"}};
 	
+	
+//	Ninguna Propiedades es -1
+//	Comprar sin casa es 0
+//	Comprar casas suma 1 (de 1 a 4)
+//	Comprar un hotel es 5
 	// ID propiedad, nombre jugador, numero de casas (de 0 a 5, 5 es un hotel)
 	static String[][] Propiedades = {
 			{"1", "Banca"},
-			{"2", "Banca", "0"},
+			{"2", "Banca", "-1"},
 			{"3", "Banca"},
-			{"4", "Banca", "0"},
+			{"4", "Banca", "-1"},
 			{"5", "Banca"},
 			{"6", "Banca", "0"},
-			{"7", "Banca", "0"},
+			{"7", "Banca", "-1"},
 			{"8", "Banca"},
-			{"9", "Banca", "0"},
-			{"10", "Banca", "0"},
+			{"9", "Banca", "-1"},
+			{"10", "Banca", "-1"},
 			{"11", "Banca"},
-			{"12", "Banca", "0"},
+			{"12", "Banca", "-1"},
 			{"13", "Banca"},
-			{"14", "Banca", "0"},
-			{"15", "Banca", "0"},
+			{"14", "Banca", "-1"},
+			{"15", "Banca", "-1"},
 			{"16", "Banca", "0"},
-			{"17", "Banca", "0"},
+			{"17", "Banca", "-1"},
 			{"18", "Banca"},
-			{"19", "Banca", "0"},
-			{"20", "Banca", "0"},
+			{"19", "Banca", "-1"},
+			{"20", "Banca", "-1"},
 			{"21", "Banca"},
-			{"22", "Banca", "0"},
+			{"22", "Banca", "-1"},
 			{"23", "Banca"},
-			{"24", "Banca", "0"},
-			{"25", "Banca", "0"},
+			{"24", "Banca", "-1"},
+			{"25", "Banca", "-1"},
 			{"26", "Banca", "0"},
-			{"27", "Banca", "0"},
-			{"28", "Banca", "0"},
+			{"27", "Banca", "-1"},
+			{"28", "Banca", "-1"},
 			{"29", "Banca"},
-			{"30", "Banca", "0"},
+			{"30", "Banca", "-1"},
 			{"31", "Banca"},
-			{"32", "Banca", "0"},
-			{"33", "Banca", "0"},
+			{"32", "Banca", "-1"},
+			{"33", "Banca", "-1"},
 			{"34", "Banca"},
-			{"35", "Banca", "0"},
+			{"35", "Banca", "-1"},
 			{"36", "Banca", "0"},
 			{"37", "Banca"},
-			{"38", "Banca", "0"},
+			{"38", "Banca", "-1"},
 			{"39", "Banca"},
-			{"40", "Banca", "0"}
+			{"40", "Banca", "-1"}
 	};
 	
 	public static void imprimirTablero() {
