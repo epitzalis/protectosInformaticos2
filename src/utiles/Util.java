@@ -2,6 +2,8 @@ package utiles;
 
 import java.util.Scanner;
 
+import com.sun.net.httpserver.Authenticator.Result;
+
 import agentes.Jugador;
 
 public class Util {
@@ -9,10 +11,18 @@ public class Util {
 	static final int DineroInicial = 10000;
 	static final int PosInicial = 1;
 	
-	public static int dados() {
-		int resultado;
-		resultado = (int)(Math.random()*7 + 1) + (int)(Math.random()*7 + 1); 
-		return resultado;
+	public static int[] dados() {
+		int[] resultados = null;
+		int dado1 = (int)(Math.random()*7 + 1);
+		int dado2 = (int)(Math.random()*7 + 1); 
+		
+		System.out.println("Has sacado dobles, dados: 1) "+dado1+" 2) "+dado2);
+		
+		resultados[0] = dado1+dado2;
+		resultados[1] = dado1;
+		resultados[2] = dado2;
+		
+		return resultados;
 	}
 	
     public static Jugador[] crearJugador(int numj) {
@@ -27,7 +37,7 @@ public class Util {
 
 	    		String[] Cartas = null;
 	    		
-	    		jugadores[i] = new Jugador(nombre, DineroInicial, PosInicial, Cartas );
+	    		jugadores[i] = new Jugador(nombre, DineroInicial, PosInicial, Cartas,false, false, 0 );
 	    		   		
 	    	}
 		}else {
@@ -109,6 +119,34 @@ public class Util {
 			} catch (Exception e) {
 				numeroOpcion = 0;
 				System.out.println("Debe introducir un número del 1 al 3");
+			}
+		}
+		
+		return numeroOpcion;
+	}
+	
+	public static int pedirOpcionesJugador2() {
+		System.out.println("Opciones");
+		System.out.println("1- Tirar datos");
+		System.out.println("2- Guardar Partida");
+		System.out.println("3- Usar carta, si tienes");
+		System.out.println("4- Exit");
+		
+		System.out.println("Escribe una de las opciones (1,2,3,4): ");
+		
+		int numeroOpcion = 0;
+		Scanner Pedir = new Scanner(System.in);
+		
+		while (numeroOpcion == 0) {
+			try {
+				numeroOpcion = Integer.parseInt(Pedir.nextLine());
+				if (numeroOpcion < 1 || numeroOpcion > 4 ) {
+					numeroOpcion = 0;
+					System.out.println("Debe introducir un numero del 1 al 4");
+				}
+			} catch (Exception e) {
+				numeroOpcion = 0;
+				System.out.println("Debe introducir un numero del 1 al 4");
 			}
 		}
 		

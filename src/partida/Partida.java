@@ -1,5 +1,6 @@
 package partida;
 
+import agentes.Cartas_comunidad;
 import agentes.Casilla;
 import agentes.Jugador;
 import agentes.Tablero;
@@ -61,7 +62,7 @@ public class Partida {
 		} else if (nombreCasilla.equals("Salida")) {
 			jugadorActual.aumentarDinero(100);
 		} else if (nombreCasilla.equals("Caja comunitaria")) {
-			
+			Cartas_comunidad.llamarCaja(jugadorActual);
 		} else if (nombreCasilla.equals("Suerte")) {
 			Suerte.llamarSuerte(jugadorActual);
 		} else if (nombreCasilla.equals("Carcel")) {
@@ -86,33 +87,89 @@ public class Partida {
 
 		while(isFinalizada == false) {
 			Jugador jugadorActual = this.jugadorActual();
-			
+				
 			if (jugadorActual.getDinero() > 0) { // Solo mostrarmos el turno de los jugadores que tienen dinero
 				System.out.println("\nEs el turno de " + jugadorActual.getNombre() + " (Dispones de " + jugadorActual.getDinero() + "€), elija una opcion:");
-				int opcionElejida = Util.pedirOpcionesJugador();
 				
-		    	switch(opcionElejida) {
-	    		case 1: // Tirar datos
-	    			int cantidadTiradaDados = Util.dados();
-	    			
-	    			jugadorActual.nuevaPosicion(cantidadTiradaDados);
-	    			String[] nuevaCasilla = Tablero.getCasilla(jugadorActual.getPosicion());
-	    			System.out.println("Has caido en la casilla: " + nuevaCasilla[1]);
-	    			//TODO
-	    			this.accion(nuevaCasilla, jugadorActual);
-	    			
-	    			cambiarTurno();
-	    			break;
-	    		case 2: // Guardar Partida
-	    			System.out.println("Sin implementar aún");
-	    			break;
-	    		case 3:
-	    			System.out.println("\nSaliste de la partida");
-	    			System.exit(0);		
-	    			break;
-	    		default:
-	    			break;
-	    		}
+				
+				if(jugadorActual.Carcel == true && jugadorActual.contador < 3) { //Miramos si el jugador esta en la carcel encerrado
+					
+					int opcionElegida2 = Util.pedirOpcionesJugador2();
+					
+					switch(opcionElegida2) {
+						case 1: //probar suerte
+							int prueba[] = Util.dados();
+							if(prueba[1] == prueba[2]) {
+								System.out.println("Estas libre de la carcel, en el siguiente turno");
+								jugadorActual.Carcel = false;
+							}else {
+								System.out.println("Mala suerte, la proxima sera");
+							}
+							break;
+						case 2: // Guardar Partida
+							System.out.println("Sin implementar aún");
+							break;
+						case 3:
+							if(jugadorActual.Targetalibre = true) {
+								System.out.println("Has usado la carta de suerte");
+								jugadorActual.Carcel = false;
+							}else {
+								System.out.println("No tienes targeta");
+							}
+							break;
+						case 4:
+							System.out.println("\nSaliste de la partida");
+							System.exit(0);		
+							break;
+						default:
+							break;
+					}
+					cambiarTurno();
+				}else {
+					int opcionElejida = Util.pedirOpcionesJugador();
+					switch(opcionElejida) {
+						case 1: // Tirar datos
+							int dados[] = Util.dados();
+							int cantidadTiradaDados = dados[0];
+							jugadorActual.nuevaPosicion(cantidadTiradaDados);
+							String[] nuevaCasilla = Tablero.getCasilla(jugadorActual.getPosicion());
+							System.out.println("Has caido en la casilla: " + nuevaCasilla[1]);
+							//TODO
+							this.accion(nuevaCasilla, jugadorActual);
+							//comprobamos si saca doble y si va a la carcel
+							if(dados[1] == dados[2]) {
+								int tirada2[] = Util.dados();
+								int cantidadTiradaDados2 = tirada2[0];
+								jugadorActual.nuevaPosicion(cantidadTiradaDados2);
+								String[] nuevaCasilla2 = Tablero.getCasilla(jugadorActual.getPosicion());
+								System.out.println("Has caido en la casilla: " + nuevaCasilla2[1]);
+								
+								if(tirada2[1] == tirada2[2]) {
+									int tirada3[] = Util.dados();
+									int cantidadTiradaDados3 = tirada3[0];
+									jugadorActual.nuevaPosicion(cantidadTiradaDados2);
+									String[] nuevaCasilla3 = Tablero.getCasilla(jugadorActual.getPosicion());
+									System.out.println("Has caido en la casilla: " + nuevaCasilla3[1]);
+									if(tirada3[1] == tirada3[2]) {
+										jugadorActual.nuevaPosicion(41);
+										System.out.println("Vas a la carcel");
+										jugadorActual.Carcel = true;
+									}
+								}
+							}
+							cambiarTurno();
+							break;
+						case 2: // Guardar Partida
+							System.out.println("Sin implementar aún");
+							break;
+						case 3:
+							System.out.println("\nSaliste de la partida");
+							System.exit(0);		
+							break;
+						default:
+							break;
+					}
+				}
 			} else {
 				cambiarTurno();
 			}

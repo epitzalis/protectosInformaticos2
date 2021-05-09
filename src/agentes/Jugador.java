@@ -4,12 +4,15 @@ public class Jugador {
 	
 	private String Nombre;
 	private int Dinero;
-	private int Posicion;
+	public int Posicion;
 	private String[] Cartas;
+	public boolean Carcel;
+	public boolean Targetalibre;
+	public int contador;
 	
 	//******************************************************** Metodos **********************************************************
 	
-	public Jugador(String nombre, int dinero, int posInicial, String[] cartas) {
+	public Jugador(String nombre, int dinero, int posInicial, String[] cartas, boolean carcel, boolean targetalibre, int contador) {
 		
 		this.Nombre = nombre;
 		
@@ -18,6 +21,12 @@ public class Jugador {
 		this.Posicion = posInicial;
 		
 		this.Cartas = cartas;
+		
+		this.Carcel = carcel;
+		
+		this.Targetalibre = targetalibre;
+		
+		this.contador = contador;
 
 	}
 	
@@ -56,8 +65,6 @@ public class Jugador {
 		System.out.println("Dinero: " + this.Posicion);
 	}
 	
-	
-	
 	//********************************************************Get y Set **********************************************************
 	public String getNombre() {
 		return Nombre;
@@ -71,7 +78,33 @@ public class Jugador {
 	public String[] getcartas() {
 		return Cartas;
 	}
-//	public void setNombre(String nombre) {
+
+	public boolean isTargetalibre() {
+		return Targetalibre;
+	}
+
+	public void setTargetalibre(boolean targetalibre) {
+		Targetalibre = targetalibre;
+	}
+
+
+	public boolean isCarcel() {
+		return Carcel;
+	}
+
+	public void setCarcel(boolean carcel) {
+		Carcel = carcel;
+	}
+	
+	public int getContador() {
+		return contador;
+	}
+
+	public void setContador(int contador) {
+		this.contador = contador;
+	}
+
+	//	public void setNombre(String nombre) {
 //		Nombre = nombre;
 //	}
 	public void setDinero(int dinero) {
