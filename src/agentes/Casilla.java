@@ -50,7 +50,7 @@ public class Casilla {
         	precioCompraCasilla = Integer.parseInt(casilla[4]);
         	nombreNuevaAdquisicion = "un hotel";
         } else if (numCasas == 5) {
-        	System.out.println("No puedes comprar más inmuebles en " + nombreCasilla);
+        	System.out.println("No puedes comprar mas inmuebles en " + nombreCasilla);
         } else { // Compra casa
         	precioCompraCasilla = Integer.parseInt(casilla[3]);
         	nombreNuevaAdquisicion = "una casa";

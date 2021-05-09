@@ -5,9 +5,8 @@ import agentes.Casilla;
 import agentes.Tablero;
 
 public class Suerte {
-	//Faltan incluir mensajes para terminal y if comparación dinero
-	//tambien algunos como carcel o priximidad (resta)
-	//1
+	
+	// las que contienen el nana faltan por desarrollar
 	
 	public static void llamarSuerte(Jugador jugadorActual) {
 		int resultado;
@@ -35,11 +34,13 @@ public class Suerte {
 			System.out.println("nana");
 		}else if(resultado == 11) {
 			impuesto(jugadorActual);
-		}else if(resultado == 12) {
-			System.out.println("nana");
+		}else if (resultado == 12) {
+			priEsta(jugadorActual);
 		}else if(resultado == 13) {
-			gana(jugadorActual);
+			System.out.println("nana");
 		}else if(resultado == 14) {
+			gana(jugadorActual);
+		}else if(resultado == 15) {
 			gana2(jugadorActual);
 		}
 
@@ -49,16 +50,19 @@ public class Suerte {
 	public static void salida(Jugador jugadorActual){
 		
 			jugadorActual.Posicion = 1;
+			System.out.println("Mueve a la casilla de salida");
 	}
 	//2
 	public static void ultima(Jugador jugadorActual) {
 		
 			jugadorActual.Posicion = 40;
+			System.out.println("Mueve hasta la última propiedad del tablero");
 	}
 	//3
 	public static void prime(Jugador JugadorActual) {
 			
 			JugadorActual.Posicion = 2;
+			System.out.println("Mueve hasta la primera propiedad del tablero");
 	}
 	//4 -> Falta escribir
 	public static void rara() {
@@ -72,6 +76,7 @@ public class Suerte {
 	public static void dividendo(Jugador jugadorActual) {
 		
 		jugadorActual.aumentarDinero(50);
+		System.out.println("El banco paga un dividendo de 50€");
 	}
 	//7 -> Libre de la carcel ->Falta
 	public static void Lcarcel() {
@@ -81,12 +86,17 @@ public class Suerte {
 	public static void retro(Jugador jugadorActual) {
 		
 		jugadorActual.Posicion = jugadorActual.Posicion - 3;
+		System.out.println("Retrocede 3 casillas");
 	}
 	//9
+	
+	
+	////////////////////////////FALTA UNO
+	
 	public static void veCarcel(Jugador jugadorActual) {
 	
 		jugadorActual.Posicion = 11;
-		
+		System.out.println("ve a ka carcel");
 		//carcel();
 		//falta definir carcel
 		
@@ -99,12 +109,13 @@ public class Suerte {
 	public static void impuesto(Jugador jugadorActual) {
 		
 		jugadorActual.disminuirDinero(15);
-		
+		System.out.println("Paga impuestos 15€");
 	}
 	//12
 	public static void priEsta(Jugador jugadorActual) {
 		
 		jugadorActual.Posicion = 6;
+		System.out.println("Ve a la primera estación del tablero");
 	}
 	//13
 	public static void co50() {
@@ -114,10 +125,12 @@ public class Suerte {
 	public static void gana(Jugador jugadorActual) {
 		
 		jugadorActual.aumentarDinero(150);
+		System.out.println("Dividendos, ganas 150€");
 	}
 	//15
 	public static void gana2(Jugador jugadorActual) {
 		
 		jugadorActual.aumentarDinero(100);
+		System.out.println("Ganas una competición de crucigramas ganas 100€");
 	}
 }
