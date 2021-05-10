@@ -12,13 +12,13 @@ public class Util {
 	static final int PosInicial = 1;
 	
 	public static int[] dados() {
-		int[] resultados = null;
+		
+		int[] resultados = new int[3];
 		int dado1 = (int)(Math.random()*7 + 1);
 		int dado2 = (int)(Math.random()*7 + 1); 
+		int resultado = dado1 + dado2;
 		
-		System.out.println("Has sacado dobles, dados: 1) "+dado1+" 2) "+dado2);
-		
-		resultados[0] = dado1+dado2;
+		resultados[0] = resultado;
 		resultados[1] = dado1;
 		resultados[2] = dado2;
 		
