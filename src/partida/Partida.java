@@ -7,6 +7,8 @@ import agentes.Tablero;
 import agentes.Suerte;
 import utiles.Util;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Partida {
@@ -56,6 +58,9 @@ public class Partida {
 			}
 		}
 	}
+	private static boolean buscarPerdido(ArrayList<String> perdidos,String nombre) {
+		  return Arrays.asList(perdidos).contains(nombre);
+		}
 	
 	public static void  accion(String[] nuevaCasilla, Jugador jugadorActual, int dado) {
 		String nombreCasilla = nuevaCasilla[1];
@@ -98,6 +103,7 @@ public class Partida {
 	}
 	
 	public void  comenzar() {
+		ArrayList<String> perdidos = new ArrayList<String>();
 		System.out.println("Va a comenzar la partida con " + this.getTotalJugadores() + " jugadores.");
 
 		while(isFinalizada == false) {
@@ -210,10 +216,15 @@ public class Partida {
 					}
 				}
 			} else {
-				if(Njugadores == 1) {
+				int tamano = perdidos.size();
+				if(tamano == (Njugadores -1)) {
 					System.out.println("Felicidades has ganado el juego " + jugadorActual.getNombre());
 				}else {
-					Njugadores = Njugadores -1;
+						if(buscarPerdido(perdidos ,jugadorActual.getNombre()) == true) {
+							
+						}else {
+							perdidos.add(jugadorActual.getNombre());
+						}
 					cambiarTurno();		
 				}
 			}
