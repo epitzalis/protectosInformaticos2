@@ -159,7 +159,7 @@ public class Cartas_comunidad {
 			contadorHotel = 0;
 		}
 		for (int x=0; x < propiedad.length; x++) {
-			  if(propiedad[x][1] == jugadorActual.getNombre()) {
+			  if(propiedad[x][1].equals(jugadorActual.getNombre())) {
 				  if(Integer.parseInt(propiedad[x][2]) >= 1 || Integer.parseInt(propiedad[x][2]) <= 4) {
 					  int casas = Integer.parseInt(propiedad[x][2]);
 					  contadorCasas = contadorCasas + casas;
