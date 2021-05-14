@@ -153,12 +153,14 @@ public class Suerte {
 		}
 		for (int x=0; x < propiedad.length; x++) {
 			  if(propiedad[x][1] == jugadorActual.getNombre()) {
-				  if(Integer.parseInt(propiedad[x][2]) >= 1 || Integer.parseInt(propiedad[x][2]) <= 4) {
+				  if(Integer.parseInt(propiedad[x][2]) >= 1 && Integer.parseInt(propiedad[x][2]) <= 4) {
 					  int casas = Integer.parseInt(propiedad[x][2]);
 					  contadorCasas = contadorCasas + casas;
 				  }else if(Integer.parseInt(propiedad[x][2]) == 5) {
 					  int hoteles = Integer.parseInt(propiedad[x][2]);
 					  contadorHotel = contadorHotel + hoteles;
+				  }else {
+					  
 				  }
 			  }	  
 		}

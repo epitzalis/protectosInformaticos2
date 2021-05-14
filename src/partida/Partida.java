@@ -69,7 +69,7 @@ public class Partida {
 		System.out.println("Has caido en " + nombreCasilla);
 		if (nombreCasilla.contains("Propiedad")) {
 			Casilla.propiedad(idCasilla, nombreCasilla, jugadorActual);
-		} else if (nombreCasilla.contains("Estacion")) {
+		} else if (nombreCasilla.contains("Estacion ")) {
 			Casilla.estacion(idCasilla, nombreCasilla, jugadorActual);
 		} else if (nombreCasilla.equals("Salida")) {
 			jugadorActual.aumentarDinero(100);

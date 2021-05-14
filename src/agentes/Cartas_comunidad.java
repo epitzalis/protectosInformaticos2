@@ -166,6 +166,8 @@ public class Cartas_comunidad {
 				  }else if(Integer.parseInt(propiedad[x][2]) == 5) {
 					  int hoteles = Integer.parseInt(propiedad[x][2]);
 					  contadorHotel = contadorHotel + hoteles;
+				  }else {
+					  
 				  }
 			  }	  
 		}
