@@ -15,6 +15,7 @@ public class Partida {
 	public static Jugador[] jugadores;
 	private boolean isFinalizada = false;
 	public static int cajaBanca;
+	public static int Njugadores;
 	
 	public Partida(Jugador[] jugadores){
 		this.jugadores = jugadores;
@@ -28,11 +29,7 @@ public class Partida {
 	private int  getTotalJugadores() {
 		return this.jugadores.length;
 	}
-	
-//	private void mostrarPosicionJugadorActual() {
-//		this.jugadorActual().mostrarPosicion();
-//	}
-	
+		
 	private void cambiarTurno() {
 		if(turno == this.jugadores.length -1) {
 			turno = 0;
@@ -40,7 +37,7 @@ public class Partida {
 			turno ++;
 		}
 	}
-	
+		
 	public static void aumentarDineroJugador(String nombreJugador, int cantidad) {
 		for (int i = 0; i < jugadores.length; i++) {
 			if (jugadores[i].getNombre().equals(nombreJugador)) {
@@ -213,7 +210,12 @@ public class Partida {
 					}
 				}
 			} else {
-				cambiarTurno();
+				if(Njugadores == 1) {
+					System.out.println("Felicidades has ganado el juego " + jugadorActual.getNombre());
+				}else {
+					Njugadores = Njugadores -1;
+					cambiarTurno();		
+				}
 			}
 		}	
 	}	

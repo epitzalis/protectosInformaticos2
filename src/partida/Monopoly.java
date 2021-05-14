@@ -2,6 +2,7 @@ package partida;
 
 import agentes.Jugador;
 import utiles.Util;
+import partida.Partida;;
 
 public class Monopoly {
 	
@@ -17,11 +18,12 @@ public class Monopoly {
     			int numJug = Util.pedirNumeroJugadores();
         		Jugador jugadores [] = Util.crearJugador(numJug);
         		Partida partida = new Partida(jugadores);
+        		Partida.Njugadores = numJug;
         		partida.comenzar();
     			break;
     		case 2:
                 // Cargar partida 
-    			System.out.println("NO ESTÁ IMPLEMENTADO CARGAR PARTIDA");
+    			System.out.println("NO ESTÃ� IMPLEMENTADO CARGAR PARTIDA");
     			break;
     		case 3:
     			System.out.println("\nSaliste de la partida");
