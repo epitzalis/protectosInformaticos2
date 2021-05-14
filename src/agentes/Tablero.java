@@ -8,7 +8,7 @@ public class Tablero {
 	//Falta en as casillas propiedades: id	Nombre Precio	CosteCasa	CosteHotel	Alquiler 1CASA	2C	3C	HOTEL
 	static final int precioCompraEstacion = 200;
 	
-	static String[][] Casillas = {
+	public static String[][] Casillas = {
 			{"1", "Salida"}, 
 			{"2", "Propiedad 1", "60","50","100","2","10","30","90","160","250"}, 
 			{"3", "Caja comunitaria"},
@@ -48,8 +48,7 @@ public class Tablero {
 			{"37", "Suerte"},
 			{"38", "Propiedad 21","350","200","400","35","175","500","1100","1300","1500"},
 			{"39", "Impuestos de lujo"},
-			{"40", "Propiedad 22","400","200","400","50","200","600","1400","1700","2000"},
-			{"41", "Carcel estas encerrado"}};
+			{"40", "Propiedad 22","400","200","400","50","200","600","1400","1700","2000"}};
 	
 	
 //	Ninguna Propiedades es -1
@@ -57,7 +56,7 @@ public class Tablero {
 //	Comprar casas suma 1 (de 1 a 4)
 //	Comprar un hotel es 5
 	// ID propiedad, nombre jugador, numero de casas (de 0 a 5, 5 es un hotel)
-	static String[][] Propiedades = {
+	public static String[][] Propiedades = {
 			{"1", "Banca"},
 			{"2", "Banca", "-1"},
 			{"3", "Banca"},

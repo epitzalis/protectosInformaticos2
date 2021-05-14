@@ -58,6 +58,8 @@ public class Jugador {
 		}
 		else {
 			this.Posicion = this.Posicion + dado -40;
+			this.Dinero = this.Dinero + 200;
+			System.out.println("Has pasado por la casilla de salida recibes 200");
 		}
 	}
 	

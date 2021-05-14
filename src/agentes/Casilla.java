@@ -28,14 +28,30 @@ public class Casilla {
 	
 	}
 	
-	public static void suerte() {
+	public static void servicio(String idCasilla, String nombreCasilla, Jugador jugadorActual, int dado) {
 		
-	}
-	
-	public static void cajacom() {
+		String[] propiedad = Tablero.getPropiedad(idCasilla);
+		String[] electrico = Tablero.getPropiedad(13);
+		String[] aguas = Tablero.getPropiedad(29);
+		String propietarioCasilla = propiedad[1];
+		int pagar = 0;
 		
+		if(propiedad[1].equals("Banca") || propiedad[1].equals(jugadorActual.getNombre())) {
+			comprarServicio(idCasilla, nombreCasilla, jugadorActual);
+        } else if(!propiedad[1].equals(jugadorActual.getNombre())) {	
+        	if(electrico[1] == aguas[1]) {
+        		pagar = dado * 10;
+        		jugadorActual.aumentarDinero(pagar);
+        		aumentarDineroJugador(propietarioCasilla, pagar);
+        	}else {
+        		pagar = dado * 4;
+        		jugadorActual.aumentarDinero(pagar);
+        		aumentarDineroJugador(propietarioCasilla, pagar);
+        	}
+        }
 	}
 	//***********************************************Metodos de ajustar casillas*****************************************
+	
 	public static void comprarPropiedad(String idCasilla, String nombreCasilla, Jugador jugadorActual){
 		String[] propiedad = Tablero.getPropiedad(idCasilla);
 		String[] casilla = Tablero.getCasilla(idCasilla);
@@ -124,8 +140,24 @@ public class Casilla {
     
 	}
 	
+	public static void comprarServicio(String idCasilla, String nombreCasilla, Jugador jugadorActual) {
+		String[] propiedad = Tablero.getPropiedad(idCasilla);
+		
+		int precioCompraCasilla = Tablero.precioCompraEstacion;
+		
+		if (Util.pedirConfirmarCompraEstacion(nombreCasilla, precioCompraCasilla)) {
+			if (jugadorActual.disminuirDinero(precioCompraCasilla)) {
+				propiedad[1] = jugadorActual.getNombre();
+			}
+		} 
+	}
+	
 	private static void aumentarDineroJugador(String nombreJugador, int cantidad) {
 		Partida.aumentarDineroJugador(nombreJugador, cantidad);
+	}
+	
+	private static void disminuirDineroJugador(String nombreJugador, int cantidad) {
+		Partida.disminuirDineroJugador(nombreJugador, cantidad);
 	}
 
 }
