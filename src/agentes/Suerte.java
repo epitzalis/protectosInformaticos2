@@ -77,10 +77,10 @@ public class Suerte {
 		int distanciaElec = 13 - posicion;
 		
 		if(distanciaAgua > 0 || distanciaElec > 0 ) {
-			if(distanciaAgua > distanciaElec) {
+			if(distanciaAgua < distanciaElec) {
 				jugadorActual.Posicion = 29;
 				System.out.println("Vas al servicio de agua");
-			}else if(distanciaElec > distanciaAgua) {
+			}else if(distanciaElec < distanciaAgua) {
 				jugadorActual.Posicion = 13;
 				System.out.println("Vas al servicio de electricidad");
 			}
@@ -99,16 +99,16 @@ public class Suerte {
 		int esta4 = 36 - posicion;
 	
 		if(esta1 > 0 || esta2 > 0 || esta3 > 0 || esta4 > 0) {
-			if(esta1 > esta2 && esta1 > esta3 && esta1 > esta4) {
+			if(esta1 < esta2 && esta1 < esta3 && esta1 < esta4) {
 				jugadorActual.Posicion = 6;
 				System.out.println("Vas a la estacion 1");
-			}else if(esta2 > esta1 && esta2 > esta3 && esta2 > esta4) {
+			}else if(esta2 < esta1 && esta2 < esta3 && esta2 < esta4) {
 				jugadorActual.Posicion = 16;
 				System.out.println("Vas a la estacion 2");
-			}else if(esta3 > esta1 && esta3 > esta2 && esta3 > esta4) {
+			}else if(esta3 < esta1 && esta3 < esta2 && esta3 < esta4) {
 				jugadorActual.Posicion = 26;
 				System.out.println("Vas a la estacion 3");
-			}else if(esta4 > esta1 && esta4 > esta2 && esta4 > esta3) {
+			}else if(esta4 < esta1 && esta4 < esta2 && esta4 < esta3) {
 				jugadorActual.Posicion = 36;
 				System.out.println("Vas a la estacion 4");
 			}
