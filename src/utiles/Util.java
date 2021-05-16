@@ -19,7 +19,7 @@ public class Util {
 		int dado2 = (int)(Math.random()*7 + 1); 
 		int resultado = dado1 + dado2;
 		
-		System.out.println("Has sacado: " + resultado + ",dado 1: " +dado1+",dado 2: "+dado2 );
+		System.out.println("Has sacado: " + resultado + ". (Dado 1: " +dado1+", dado 2: "+dado2+")" );
 		
 		resultados[0] = resultado;
 		resultados[1] = dado1;
@@ -272,9 +272,11 @@ public class Util {
 					System.out.println("No se ha comprado nada");
 				}
 			}else if(casasactuales == 5) {
-				System.out.println("No se puedes comprar m·s en esta propiedad");
+				System.out.println("No se puedes comprar mas en esta propiedad");
 			}
-		}	
+		} else {
+			System.out.println("No puedes comprar casas ni hotel aqu√≠");
+		}
 	}
 	
 	public static void imprimirTablero() {

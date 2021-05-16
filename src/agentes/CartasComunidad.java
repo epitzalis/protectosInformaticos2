@@ -5,7 +5,7 @@ import agentes.Casilla;
 import agentes.Tablero;
 import partida.Partida;
 
-public class Cartas_comunidad {
+public class CartasComunidad {
 	
 	private static int contadorCasas;
 	private static int contadorHotel;
@@ -59,23 +59,23 @@ public class Cartas_comunidad {
 	//2
 	public static void errorBanco(Jugador jugadorActual) {
 		jugadorActual.aumentarDinero(200);
-		System.out.println("Error del banco ganas 200€");
+		System.out.println("Error del banco ganas 200ï¿½");
 	}
 	//3
 	public static void dentista(Jugador jugadorActual) {
 		jugadorActual.disminuirDinero(50);
-		System.out.println("Pagas al dentista 50€");
+		System.out.println("Pagas al dentista 50ï¿½");
 		partida.Partida.cajaBanca = partida.Partida.cajaBanca + 50;
 	}
 	//4
 	public static void dividendos(Jugador jugadorActual){
 		jugadorActual.aumentarDinero(50);
-		System.out.println("Ganas 50€ de dividendos");
+		System.out.println("Ganas 50ï¿½ de dividendos");
 	}
 	//5
 	public static void libreCarcel(Jugador jugadorActual){
 		jugadorActual.Targetalibre = true;
-		System.out.println("Queda libre de la cárcel, esta carta se puede usar cuando se crea oportuno. No se puede vender");
+		System.out.println("Queda libre de la cï¿½rcel, esta carta se puede usar cuando se crea oportuno. No se puede vender");
 	}
 	//6
 	public static void carcel(Jugador jugadorActual) {
@@ -103,12 +103,12 @@ public class Cartas_comunidad {
 	//8
 	public static void dividendo(Jugador jugadorActual) {
 		jugadorActual.aumentarDinero(100);
-		System.out.println("Dividendos ganas 100€");
+		System.out.println("Dividendos ganas 100ï¿½");
 	}
 	//9
 	public static void devoImp(Jugador jugadorActual) {
 		jugadorActual.aumentarDinero(20);
-		System.out.println("Devolución de impuestos ganas 20€");
+		System.out.println("Devoluciï¿½n de impuestos ganas 20ï¿½");
 	}
 	//10
 	public static void cumple(Jugador jugadorActual) {
@@ -130,24 +130,24 @@ public class Cartas_comunidad {
 	//11
 	public static void loteria(Jugador jugadorActual) {
 		jugadorActual.aumentarDinero(100);
-		System.out.println("Primer premio en la lotería ganas 100€");
+		System.out.println("Primer premio en la loterï¿½a ganas 100ï¿½");
 	}
 	//12
 	public static void multa(Jugador jugadorActual) {
 		jugadorActual.disminuirDinero(100);
-		System.out.println("Multa de velocidad pagas 100€");
+		System.out.println("Multa de velocidad pagas 100ï¿½");
 		partida.Partida.cajaBanca = partida.Partida.cajaBanca + 100;
 	}
 	//13
 	public static void escola(Jugador jugadorActual) {
 		jugadorActual.aumentarDinero(150);
-		System.out.println("Matrícula escolar pagas 150€");
+		System.out.println("Matrï¿½cula escolar pagas 150ï¿½");
 		partida.Partida.cajaBanca = partida.Partida.cajaBanca + 150;
 	}
 	//14
 	public static void consultor(Jugador jugadorActual) {
 		jugadorActual.aumentarDinero(25);
-		System.out.println("Tasa de consultor, ganas 25€");
+		System.out.println("Tasa de consultor, ganas 25ï¿½");
 	}
 	//15
 	public static void reparacion(Jugador jugadorActual) {
@@ -177,6 +177,6 @@ public class Cartas_comunidad {
 	//16
 	public static void premio(Jugador jugadorActual) {
 		jugadorActual.aumentarDinero(10);
-		System.out.println("Ganas el segundo premio en un concurso de disfraces ganas 10€");
+		System.out.println("Ganas el segundo premio en un concurso de disfraces ganas 10ï¿½");
 	}
 }

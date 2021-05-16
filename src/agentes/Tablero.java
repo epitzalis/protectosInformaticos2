@@ -51,16 +51,14 @@ public class Tablero {
 			{"40", "Propiedad 22","400","200","400","50","200","600","1400","1700","2000"}};
 	
 	
-//	Ninguna Propiedades es -1
-//	Comprar sin casa es 0
-//	Comprar casas suma 1 (de 1 a 4)
-//	Comprar un hotel es 5
+	//	Ninguna Propiedades es -1
+	//	Comprar sin casa es 0
+	//	Comprar casas suma 1 (de 1 a 4)
+	//	Comprar un hotel es 5
 	// ID propiedad, nombre jugador, numero de casas (de 0 a 5, 5 es un hotel)
 	public static String[][] Propiedades = {
 			{"1", "Banca","0"},
-			{"2", "Banca", "01"
-					+ "1"
-					+ "1"},
+			{"2", "Banca","0"},
 			{"3", "Banca","0"},
 			{"4", "Banca", "0"},
 			{"5", "Banca","0"},

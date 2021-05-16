@@ -1,6 +1,6 @@
 package partida;
 
-import agentes.Cartas_comunidad;
+import agentes.CartasComunidad;
 import agentes.Casilla;
 import agentes.Jugador;
 import agentes.Tablero;
@@ -9,7 +9,6 @@ import utiles.Util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Partida {
 
@@ -59,14 +58,14 @@ public class Partida {
 		}
 	}
 	private static boolean buscarPerdido(ArrayList<String> perdidos,String nombre) {
-		  return Arrays.asList(perdidos).contains(nombre);
-		}
+		return Arrays.asList(perdidos).contains(nombre);
+	}
 	
 	public static void  accion(String[] nuevaCasilla, Jugador jugadorActual, int dado) {
 		String nombreCasilla = nuevaCasilla[1];
 		String idCasilla = nuevaCasilla[0];
 		// TODO Continuar en casillas
-		System.out.println("Has caido en " + nombreCasilla);
+//		System.out.println("Has caido en " + nombreCasilla);
 		if (nombreCasilla.contains("Propiedad")) {
 			Casilla.propiedad(idCasilla, nombreCasilla, jugadorActual);
 		} else if (nombreCasilla.contains("Estacion ")) {
@@ -74,7 +73,7 @@ public class Partida {
 		} else if (nombreCasilla.equals("Salida")) {
 			jugadorActual.aumentarDinero(100);
 		} else if (nombreCasilla.equals("Caja comunitaria")) {
-			Cartas_comunidad.llamarCaja(jugadorActual);
+			CartasComunidad.llamarCaja(jugadorActual);
 		} else if (nombreCasilla.equals("Suerte")) {
 			Suerte.llamarSuerte(jugadorActual);
 		} else if (nombreCasilla.equals("Carcel")) {
@@ -98,7 +97,7 @@ public class Partida {
 		} else if (nombreCasilla.equals("Impuestos sobre el Capital")) {
 			System.out.println("Pagas 200");
 			jugadorActual.disminuirDinero(200);
-			cajaBanca = cajaBanca + 100;
+			cajaBanca = cajaBanca + 200;
 		}
 	}
 	
@@ -117,6 +116,7 @@ public class Partida {
 				if(jugadorActual.Carcel == true && jugadorActual.contador < 3) { //Miramos si el jugador esta en la carcel encerrado
 					
 					int opcionElegida2 = Util.pedirOpcionesJugador2();
+					
 						switch(opcionElegida2) {
 							case 1: //probar suerte
 								int prueba[] = Util.dados();
@@ -164,13 +164,14 @@ public class Partida {
 							jugadorActual.nuevaPosicion(cantidadTiradaDados);
 							String[] nuevaCasilla = Tablero.getCasilla(jugadorActual.getPosicion());
 							System.out.println("Has caido en la casilla: " + nuevaCasilla[1]);
-							//TODO
+
 							this.accion(nuevaCasilla, jugadorActual, cantidadTiradaDados);
 														
 							//comprobamos si saca doble y si va a la carcel
 							if(dados[1] == dados[2]) {
 								
 								int tirada2[] = Util.dados();
+								System.out.println("Has sacado un doble, volverás a tirar despues");
 								int cantidadTiradaDados2 = tirada2[0];
 								jugadorActual.nuevaPosicion(cantidadTiradaDados2);
 								String[] nuevaCasilla2 = Tablero.getCasilla(jugadorActual.getPosicion());
@@ -180,6 +181,7 @@ public class Partida {
 								if(tirada2[1] == tirada2[2]) {
 									
 									int tirada3[] = Util.dados();
+									System.out.println("Has sacado un doble, volverás a tirar despues");
 									int cantidadTiradaDados3 = tirada3[0];
 									jugadorActual.nuevaPosicion(cantidadTiradaDados2);
 									String[] nuevaCasilla3 = Tablero.getCasilla(jugadorActual.getPosicion());
@@ -205,7 +207,7 @@ public class Partida {
 							Util.imprimirCasillas();
 							break;
 						case 5: // Guardar Partida
-							System.out.println("Sin implementar aún");
+							System.out.println("Sin implementar aun");
 							break;
 						case 6:
 							System.out.println("\nSaliste de la partida");
