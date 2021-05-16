@@ -11,6 +11,7 @@ import utiles.Util;
 public class Partida {
 
 	private int turno;
+	private String nombreJugadorActual = "Jugador 1";
 	public static Jugador[] jugadores;
 	private boolean isFinalizada = false;
 	public static int cajaBanca;
@@ -20,7 +21,14 @@ public class Partida {
 	}
 	
 	private Jugador jugadorActual() {
-		return this.jugadores[this.turno]; //ronda
+		int index = 0;
+		for (int i = 0; i < jugadores.length; i++) {
+			if (nombreJugadorActual.equals(jugadores[i].getNombre())) {
+				index = i;
+			}
+		}
+		return jugadores[index];
+//		return this.jugadores[this.turno]; //ronda
 	}
 	
 	private int getTotalJugadores() {
@@ -28,11 +36,31 @@ public class Partida {
 	}
 		
 	private void cambiarTurno() {
-		if(turno == this.jugadores.length -1) {
-			turno = 0;
-		}else {
-			turno ++;
+		String jugadorSiguiente = ""; 
+		if (!this.checkTerminoPartida()) {
+			int encontrado = 0;
+			int i = 0;
+			while (encontrado < 3 && jugadorSiguiente.equals("")) {
+				if (encontrado > 0 && jugadores[i].getDinero() > 0) {
+					jugadorSiguiente = jugadores[i].getNombre();
+				}
+				if (nombreJugadorActual.equals(jugadores[i].getNombre())) {
+					encontrado++;
+				}
+				if (i == (jugadores.length - 1)) {
+					i = 0;
+				} else {
+					i++;
+				}
+			}
+			this.nombreJugadorActual = jugadorSiguiente;
 		}
+		
+//		if(turno == this.jugadores.length -1) {
+//			turno = 0;
+//		}else {
+//			turno ++;
+//		}
 	}
 		
 	public static void aumentarDineroJugador(String nombreJugador, int cantidad) {
@@ -44,6 +72,7 @@ public class Partida {
 			}
 		}
 	}
+	
 	public static void disminuirDineroJugador(String nombreJugador, int cantidad) {
 		for (int i = 0; i < jugadores.length; i++) {
 			if (jugadores[i].getNombre().equals(nombreJugador)) {
@@ -54,7 +83,6 @@ public class Partida {
 		}
 	}
 
-	
 	public static void accion(String[] nuevaCasilla, Jugador jugadorActual, int dado) {
 		String nombreCasilla = nuevaCasilla[1];
 		String idCasilla = nuevaCasilla[0];
