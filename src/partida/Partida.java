@@ -7,8 +7,6 @@ import agentes.Tablero;
 import agentes.Suerte;
 import utiles.Util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Partida {
 
@@ -27,7 +25,7 @@ public class Partida {
 		return this.jugadores[this.turno]; //ronda
 	}
 	
-	private int  getTotalJugadores() {
+	private int getTotalJugadores() {
 		return this.jugadores.length;
 	}
 		
@@ -57,15 +55,12 @@ public class Partida {
 			}
 		}
 	}
-	private static boolean buscarPerdido(ArrayList<String> perdidos,String nombre) {
-		return Arrays.asList(perdidos).contains(nombre);
-	}
+
 	
-	public static void  accion(String[] nuevaCasilla, Jugador jugadorActual, int dado) {
+	public static void accion(String[] nuevaCasilla, Jugador jugadorActual, int dado) {
 		String nombreCasilla = nuevaCasilla[1];
 		String idCasilla = nuevaCasilla[0];
-		// TODO Continuar en casillas
-//		System.out.println("Has caido en " + nombreCasilla);
+
 		if (nombreCasilla.contains("Propiedad")) {
 			Casilla.propiedad(idCasilla, nombreCasilla, jugadorActual);
 		} else if (nombreCasilla.contains("Estacion ")) {
@@ -101,8 +96,27 @@ public class Partida {
 		}
 	}
 	
+	private boolean checkTerminoPartida() {
+		int totalJugadoresActivos = 0;
+		String nombreGanador = "";
+		for (int i = 0; i < jugadores.length; i++) {
+			if (jugadores[i].getDinero() > 0) {
+				totalJugadoresActivos++;
+				nombreGanador = jugadores[i].getNombre();
+			}
+		}
+		
+		if (totalJugadoresActivos == 1) {
+			System.out.println("Felicidades" + nombreGanador + ", has ganado la partida");
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
 	public void  comenzar() {
-		ArrayList<String> perdidos = new ArrayList<String>();
+		
 		System.out.println("Va a comenzar la partida con " + this.getTotalJugadores() + " jugadores.");
 
 		while(isFinalizada == false) {
@@ -217,19 +231,11 @@ public class Partida {
 							break;
 					}
 				}
-			} else {
-				int tamano = perdidos.size();
-				if(tamano == (Njugadores -1)) {
-					System.out.println("Felicidades has ganado el juego " + jugadorActual.getNombre());
-				}else {
-						if(buscarPerdido(perdidos ,jugadorActual.getNombre()) == true) {
-							
-						}else {
-							perdidos.add(jugadorActual.getNombre());
-						}
-					cambiarTurno();		
-				}
-			}
-		}	
+			} 
+			isFinalizada = this.checkTerminoPartida();
+		}
+		System.out.println("La partida ha finalizado.");
+		System.exit(0);		
 	}	
+	
 }
