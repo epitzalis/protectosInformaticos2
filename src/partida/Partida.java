@@ -168,7 +168,7 @@ public class Partida {
 								}
 								break;
 							case 2: // Guardar Partida
-								Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.turno, Tablero.Propiedades);
+								Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.nombreJugadorActual, Tablero.Propiedades);
 								break;
 							case 3:
 								if(jugadorActual.Targetalibre = true) {
@@ -247,7 +247,7 @@ public class Partida {
 							Util.imprimirCasillas();
 							break;
 						case 5: // Guardar Partida
-							Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.turno, Tablero.Propiedades);
+							Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.nombreJugadorActual, Tablero.Propiedades);
 							break;
 						case 6:
 							System.out.println("\nSaliste de la partida");

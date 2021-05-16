@@ -12,11 +12,11 @@ import agentes.Jugador;
 
 public class Fichero {
 	
-	public static void exportarFichero(Jugador[] jugadores, int cajaBanca, int turno, String[][] propiedades){
+	public static void exportarFichero(Jugador[] jugadores, int cajaBanca, String nombreJugadorActual, String[][] propiedades){
 		JSONObject jo = new JSONObject();
 		jo.put("jugadores", jugadores);
 		jo.put("cajaBanca", cajaBanca);
-		jo.put("turno", turno);
+		jo.put("nombreJugadorActual", nombreJugadorActual);
 		jo.put("propiedades", propiedades);
 		
 		String nombreFichero = "Copia partida " + Long.toString(new Date().getTime()) + ".json";
@@ -31,5 +31,25 @@ public class Fichero {
 		}
 
 	}
+//	
+//	public static void exportarFichero(Jugador[] jugadores, int cajaBanca, int turno, String[][] propiedades){
+//		JSONObject jo = new JSONObject();
+//		jo.put("jugadores", jugadores);
+//		jo.put("cajaBanca", cajaBanca);
+//		jo.put("turno", turno);
+//		jo.put("propiedades", propiedades);
+//		
+//		String nombreFichero = "Copia partida " + Long.toString(new Date().getTime()) + ".json";
+//		try {
+//			File archivo = new File(nombreFichero);
+//			FileWriter escribir = new FileWriter(archivo, true);
+//			escribir.write(jo.toString());
+//			escribir.close();
+//			System.out.println("Fichero exportado correctamente con el nombre: " + nombreFichero);
+//		}catch (IOException e) {
+//			System.out.println("Error al escribir el fichero");
+//		}
+//
+//	}
 
 }
