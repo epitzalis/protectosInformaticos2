@@ -18,7 +18,6 @@ public class Monopoly {
     			int numJug = Util.pedirNumeroJugadores();
         		Jugador jugadores [] = Util.crearJugador(numJug);
         		Partida partida = new Partida(jugadores);
-        		Partida.Njugadores = numJug;
         		partida.comenzar();
     			break;
     		case 2:

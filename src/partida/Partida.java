@@ -14,14 +14,12 @@ public class Partida {
 	public static Jugador[] jugadores;
 	private boolean isFinalizada = false;
 	public static int cajaBanca;
-	public static int Njugadores;
 	
 	public Partida(Jugador[] jugadores){
 		this.jugadores = jugadores;
 	}
 	
 	private Jugador jugadorActual() {
-		
 		return this.jugadores[this.turno]; //ronda
 	}
 	
@@ -142,7 +140,7 @@ public class Partida {
 								}
 								break;
 							case 2: // Guardar Partida
-								System.out.println("Sin implementar aun");
+								Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.turno, Tablero.Propiedades);
 								break;
 							case 3:
 								if(jugadorActual.Targetalibre = true) {
@@ -221,7 +219,7 @@ public class Partida {
 							Util.imprimirCasillas();
 							break;
 						case 5: // Guardar Partida
-							System.out.println("Sin implementar aun");
+							Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.turno, Tablero.Propiedades);
 							break;
 						case 6:
 							System.out.println("\nSaliste de la partida");
