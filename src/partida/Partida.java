@@ -10,14 +10,24 @@ import utiles.Util;
 
 public class Partida {
 
-	private int turno;
 	private String nombreJugadorActual = "Jugador 1";
 	public static Jugador[] jugadores;
 	private boolean isFinalizada = false;
 	public static int cajaBanca;
 	
-	public Partida(Jugador[] jugadores){
+//	this.jugadores = jugadores;
+//	this.cajaBanca = cajaBanca;
+//	this.nombreJugadorActual = nombreJugadorActual;
+//	this.propiedades = propiedades;
+	
+	public Partida(Jugador[] jugadores) {
 		this.jugadores = jugadores;
+	}
+	
+	public Partida(Jugador[] jugadores, int cajaBanca, String nombreJugadorActual) {
+		this.jugadores = jugadores;
+		this.cajaBanca = cajaBanca;
+		this.nombreJugadorActual = nombreJugadorActual;
 	}
 	
 	private Jugador jugadorActual() {
@@ -28,7 +38,6 @@ public class Partida {
 			}
 		}
 		return jugadores[index];
-//		return this.jugadores[this.turno]; //ronda
 	}
 	
 	private int getTotalJugadores() {
@@ -55,12 +64,6 @@ public class Partida {
 			}
 			this.nombreJugadorActual = jugadorSiguiente;
 		}
-		
-//		if(turno == this.jugadores.length -1) {
-//			turno = 0;
-//		}else {
-//			turno ++;
-//		}
 	}
 		
 	public static void aumentarDineroJugador(String nombreJugador, int cantidad) {
@@ -168,7 +171,7 @@ public class Partida {
 								}
 								break;
 							case 2: // Guardar Partida
-								Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.nombreJugadorActual, Tablero.Propiedades);
+								Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.nombreJugadorActual, Tablero.getPropiedades());
 								break;
 							case 3:
 								if(jugadorActual.Targetalibre = true) {
@@ -247,7 +250,7 @@ public class Partida {
 							Util.imprimirCasillas();
 							break;
 						case 5: // Guardar Partida
-							Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.nombreJugadorActual, Tablero.Propiedades);
+							Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.nombreJugadorActual, Tablero.getPropiedades());
 							break;
 						case 6:
 							System.out.println("\nSaliste de la partida");

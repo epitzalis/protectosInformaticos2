@@ -12,6 +12,7 @@ public class Jugador {
 	
 	//******************************************************** Metodos **********************************************************
 	
+	
 	public Jugador(String nombre, int dinero, int posInicial, String[] cartas, boolean carcel, boolean targetalibre, int contador) {
 		
 		this.Nombre = nombre;

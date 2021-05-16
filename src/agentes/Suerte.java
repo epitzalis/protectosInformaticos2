@@ -145,7 +145,7 @@ public class Suerte {
 	}
 	//10
 	public static void reforma(Jugador jugadorActual) {
-		String[][] propiedad = Tablero.Propiedades;
+		String[][] propiedad = Tablero.getPropiedades();
 		System.out.println("Tienes que pagar 25 por casa y 100 por hotel");
 		if(contadorCasas != 0 || contadorHotel != 0) {
 			contadorCasas = 0;

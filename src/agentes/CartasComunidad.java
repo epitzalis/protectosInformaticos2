@@ -152,7 +152,7 @@ public class CartasComunidad {
 	//15
 	public static void reparacion(Jugador jugadorActual) {
 		//falta buscar casillas
-		String[][] propiedad = Tablero.Propiedades;
+		String[][] propiedad = Tablero.getPropiedades();
 		System.out.println("Tienes que pagar 40 por casa y 115 por hotel");
 		if(contadorCasas != 0 || contadorHotel != 0) {
 			contadorCasas = 0;

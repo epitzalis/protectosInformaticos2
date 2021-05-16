@@ -1,16 +1,13 @@
 package partida;
 
 import agentes.Jugador;
+import agentes.Tablero;
 import utiles.Util;
-import partida.Partida;;
 
 public class Monopoly {
-	
-	static final int Max_jugadores = 8;
-	
+		
     public static void main(String[] args) {
     	    	
-    	
     	int pedir = Util.pedirOpcionesInicio();
 
     	switch(pedir) {
@@ -22,7 +19,14 @@ public class Monopoly {
     			break;
     		case 2:
                 // Cargar partida 
-    			System.out.println("NO ESTÃ� IMPLEMENTADO CARGAR PARTIDA");
+    			DatosPartida datosPartida = Fichero.importarFichero();
+    			
+    			Partida partidaCargada = new Partida(datosPartida.getJugadores(), 
+    											datosPartida.getCajaBanca(), datosPartida.getNombreJugadorActual());
+    			
+    			Tablero.setPropiedades(datosPartida.getPropiedades());
+    			partidaCargada.comenzar();
+    			
     			break;
     		case 3:
     			System.out.println("\nSaliste de la partida");

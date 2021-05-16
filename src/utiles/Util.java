@@ -281,7 +281,7 @@ public class Util {
 	
 	public static void imprimirTablero() {
 		
-		String[][] propiedad = Tablero.Propiedades;
+		String[][] propiedad = Tablero.getPropiedades();;
 	
 		for (int x=0; x < propiedad.length; x++) {
 			  System.out.print("|");
@@ -292,9 +292,10 @@ public class Util {
 			  System.out.println("|");
 		}	
 	}
+	
 	public static void imprimirCasillas() {
 		
-		String[][] casilla = Tablero.Casillas;
+		String[][] casilla = Tablero.getCasillas();
 		System.out.println("Se impimen siguiendo el siguiente orden: ");
 		System.out.println("IdCasilla,  Precio Casa, Precio Hotel, Alquiler, 1 Casa, 2 Casas, 3 Casas, 4 casas, Hotel");
 		System.out.println("");
@@ -307,4 +308,23 @@ public class Util {
 			  System.out.println("|");
 		}	
 	}
+	
+	public static String introducirNombreFichero() {
+		System.out.println("Introduce el nombre del fichero:");
+		
+		String nombrefichero = "";
+		Scanner pedir = new Scanner(System.in);
+		
+		while (nombrefichero.equals("")) {
+			try {
+				nombrefichero = pedir.nextLine();
+
+			} catch (Exception e) {
+				nombrefichero = "";
+				System.out.println("Introduce el nombre del fichero:");
+			}
+		}
+		return nombrefichero;
+	}
+	
 }
