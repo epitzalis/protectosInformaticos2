@@ -9,9 +9,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CartasComunidadTest {
-
+	Jugador jugadorPrueba;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		//jugadorPrueba = new agentes.Jugador("hola", 200, 0, null, false, false, 0);
 	}
 
 	@AfterClass
@@ -20,6 +22,7 @@ public class CartasComunidadTest {
 
 	@Before
 	public void setUp() throws Exception {
+		jugadorPrueba = new agentes.Jugador("hola", 200, 0, null, false, false, 0);
 	}
 
 	@After
@@ -43,7 +46,8 @@ public class CartasComunidadTest {
 
 	@Test
 	public void testDentista() {
-		fail("Not yet implemented");
+		CartasComunidad.dentista(jugadorPrueba);
+		assertTrue(jugadorPrueba.getDinero()==150);
 	}
 
 	@Test
