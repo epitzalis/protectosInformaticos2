@@ -4,11 +4,11 @@ public class Jugador {
 	
 	private String Nombre;
 	private int Dinero;
-	public int Posicion;
+	private int Posicion;
 	private String[] Cartas;
-	public boolean Carcel;
-	public boolean Targetalibre;
-	public int contador;
+	private boolean Carcel;
+	private boolean Targetalibre;
+	private int contador;
 	
 	//******************************************************** Metodos **********************************************************
 	

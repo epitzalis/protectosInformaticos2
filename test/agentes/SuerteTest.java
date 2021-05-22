@@ -9,6 +9,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class SuerteTest {
+	
+	private Jugador jugador;
+	
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,20 +23,29 @@ public class SuerteTest {
 
 	@Before
 	public void setUp() throws Exception {
+		jugador = new agentes.Jugador("Jugador 1", 200, 0, null, false, false, 0);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testLlamarSuerte() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testLlamarSuerte() {
+//		int dineroInicial = jugador.getDinero();
+//		int i = 0;
+//		while (i < 100) {
+//			Suerte.llamarSuerte(jugador);
+//		}
+//		assert(jugador.getDinero() != dineroInicial);
+//	}
 
 	@Test
 	public void testSalida() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		Suerte.salida(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test

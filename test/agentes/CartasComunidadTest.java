@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CartasComunidadTest {
-	Jugador jugadorPrueba;
+	private Jugador jugador;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -22,7 +22,7 @@ public class CartasComunidadTest {
 
 	@Before
 	public void setUp() throws Exception {
-		jugadorPrueba = new agentes.Jugador("hola", 200, 0, null, false, false, 0);
+		jugador = new agentes.Jugador("Jugador 1", 200, 0, null, false, false, 0);
 	}
 
 	@After
@@ -46,8 +46,8 @@ public class CartasComunidadTest {
 
 	@Test
 	public void testDentista() {
-		CartasComunidad.dentista(jugadorPrueba);
-		assertTrue(jugadorPrueba.getDinero()==150);
+		CartasComunidad.dentista(jugador);
+		assertTrue(jugador.getDinero()==150);
 	}
 
 	@Test

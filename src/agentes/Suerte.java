@@ -1,8 +1,5 @@
 package agentes;
 
-import agentes.Jugador;
-import agentes.Casilla;
-import agentes.Tablero;
 import partida.Partida;
 
 public class Suerte {
@@ -51,7 +48,7 @@ public class Suerte {
 
 	public static void salida(Jugador jugadorActual){
 		
-			jugadorActual.Posicion = 1;
+			jugadorActual.setPosicion(1);
 			System.out.println("Mueve a la casilla de salida");
 			jugadorActual.aumentarDinero(200);
 			System.out.println("Has pasado por la salida y cobras 200");
@@ -60,38 +57,38 @@ public class Suerte {
 	//2
 	public static void ultima(Jugador jugadorActual) {
 		
-			jugadorActual.Posicion = 40;
-			System.out.println("Mueve hasta la �ltima propiedad del tablero");
+			jugadorActual.setPosicion(40);
+			System.out.println("Mueve hasta la ultima propiedad del tablero");
 	}
 	//3
-	public static void prime(Jugador JugadorActual) {
+	public static void prime(Jugador jugadorActual) {
 			
-			JugadorActual.Posicion = 2;
+			jugadorActual.setPosicion(2);
 			System.out.println("Mueve hasta la primera propiedad del tablero");
 	}
 	//4
 	public static void rara(Jugador jugadorActual) {
-		int posicion = jugadorActual.Posicion;
+		int posicion = jugadorActual.getPosicion();
 		
 		int distanciaAgua = 29 - posicion;
 		int distanciaElec = 13 - posicion;
 		
 		if(distanciaAgua > 0 || distanciaElec > 0 ) {
 			if(distanciaAgua < distanciaElec) {
-				jugadorActual.Posicion = 29;
+				jugadorActual.setPosicion(29);
 				System.out.println("Vas al servicio de agua");
 			}else if(distanciaElec < distanciaAgua) {
-				jugadorActual.Posicion = 13;
+				jugadorActual.setPosicion(13);
 				System.out.println("Vas al servicio de electricidad");
 			}
 		}else {
-			jugadorActual.Posicion = 29;
+			jugadorActual.setPosicion(29);
 			System.out.println("Vas al servicio de agua");
 		}
 	}
 	//5 
 	public static void estacion(Jugador jugadorActual) {
-		int posicion = jugadorActual.Posicion;
+		int posicion = jugadorActual.getPosicion();
 		
 		int esta1 = 6 - posicion;
 		int esta2 = 16 - posicion;
@@ -100,20 +97,20 @@ public class Suerte {
 	
 		if(esta1 > 0 || esta2 > 0 || esta3 > 0 || esta4 > 0) {
 			if(esta1 < esta2 && esta1 < esta3 && esta1 < esta4) {
-				jugadorActual.Posicion = 6;
+				jugadorActual.setPosicion(6);
 				System.out.println("Vas a la estacion 1");
 			}else if(esta2 < esta1 && esta2 < esta3 && esta2 < esta4) {
-				jugadorActual.Posicion = 16;
+				jugadorActual.setPosicion(16);
 				System.out.println("Vas a la estacion 2");
 			}else if(esta3 < esta1 && esta3 < esta2 && esta3 < esta4) {
-				jugadorActual.Posicion = 26;
+				jugadorActual.setPosicion(26);
 				System.out.println("Vas a la estacion 3");
 			}else if(esta4 < esta1 && esta4 < esta2 && esta4 < esta3) {
-				jugadorActual.Posicion = 36;
+				jugadorActual.setPosicion(36);
 				System.out.println("Vas a la estacion 4");
 			}
 		}else {
-			jugadorActual.Posicion = 6;
+			jugadorActual.setPosicion(6);
 			System.out.println("Vas a la estacion 1");
 		}
 	}
@@ -121,26 +118,25 @@ public class Suerte {
 	public static void dividendo(Jugador jugadorActual) {
 		
 		jugadorActual.aumentarDinero(50);
-		System.out.println("El banco paga un dividendo de 50�");
+		System.out.println("El banco paga un dividendo de 50€");
 	}
 	//7 -> Libre de la carcel ->Falta
 	public static void Lcarcel(Jugador jugadorActual) {
-		jugadorActual.Targetalibre = true;
-		
-		System.out.println("Queda libre de la c�rcel, esta carta se puede usar cuando se crea oportuno. No se puede vender");
+		jugadorActual.setTargetalibre(true);
+		System.out.println("Queda libre de la carcel, esta carta se puede usar cuando se crea oportuno. No se puede vender");
 	}
 	//8
 	public static void retro(Jugador jugadorActual) {
 		
-		jugadorActual.Posicion = jugadorActual.Posicion - 3;
+		jugadorActual.setPosicion(jugadorActual.getPosicion() - 3);
 		System.out.println("Retrocede 3 casillas");
 	}
 
 	//9
 	public static void veCarcel(Jugador jugadorActual) {
 	
-		jugadorActual.Carcel = true;
-		jugadorActual.Posicion = 11;
+		jugadorActual.setCarcel(true);
+		jugadorActual.setPosicion(11);
 		System.out.println("Ve a la carcel");
 	}
 	//10
@@ -165,20 +161,20 @@ public class Suerte {
 			  }	  
 		}
 		int pagar = (25*contadorCasas) + (100*contadorHotel);
-		System.out.println("Tienes "+contadorCasas+" casas y "+contadorHotel+" hoteles, tienes que pagar un total de: "+pagar);
+		System.out.println("Tienes "+contadorCasas+" casas y "+contadorHotel+" hoteles, tienes que pagar un total de: " + pagar);
 	}
 	//11
 	public static void impuesto(Jugador jugadorActual) {
 		
 		jugadorActual.disminuirDinero(15);
-		System.out.println("Paga impuestos 15�");
+		System.out.println("Paga impuestos 15€");
 		partida.Partida.cajaBanca = partida.Partida.cajaBanca + 50;
 	}
 	//12
 	public static void priEsta(Jugador jugadorActual) {
 		
-		jugadorActual.Posicion = 6;
-		System.out.println("Ve a la primera estaci�n del tablero");
+		jugadorActual.setPosicion(6);
+		System.out.println("Ve a la primera estacion del tablero");
 	}
 	//13
 	public static void co50(Jugador jugadorActual) {
@@ -200,12 +196,12 @@ public class Suerte {
 	public static void gana(Jugador jugadorActual) {
 		
 		jugadorActual.aumentarDinero(150);
-		System.out.println("Dividendos, ganas 150�");
+		System.out.println("Dividendos, ganas 150€");
 	}
 	//15
 	public static void gana2(Jugador jugadorActual) {
 		
 		jugadorActual.aumentarDinero(100);
-		System.out.println("Ganas una competici�n de crucigramas ganas 100�");
+		System.out.println("Ganas una competici�n de crucigramas ganas 100€");
 	}
 }

@@ -15,11 +15,6 @@ public class Partida {
 	private boolean isFinalizada = false;
 	public static int cajaBanca;
 	
-//	this.jugadores = jugadores;
-//	this.cajaBanca = cajaBanca;
-//	this.nombreJugadorActual = nombreJugadorActual;
-//	this.propiedades = propiedades;
-	
 	public Partida(Jugador[] jugadores) {
 		this.jugadores = jugadores;
 	}
@@ -111,8 +106,8 @@ public class Partida {
 			System.out.println("Has ganado "+cajaBanca+" euros.");
 			cajaBanca = 0;
 		} else if (nombreCasilla.equals("Ve a la Carcel")) {
-			jugadorActual.Posicion = 11;
-			jugadorActual.Carcel = true;
+			jugadorActual.setPosicion(11);
+			jugadorActual.setCarcel(true);
 			System.out.println("Vas a la carcel, sin pasar por la casilla de salida");
 		} else if (nombreCasilla.equals("Impuestos de lujo")) {
 			System.out.println("Pagas 100");
@@ -156,7 +151,7 @@ public class Partida {
 				System.out.println("\nEs el turno de " + jugadorActual.getNombre() + " (Dispones de " + jugadorActual.getDinero() + "€), elija una opcion:");
 				
 				
-				if(jugadorActual.Carcel == true && jugadorActual.contador < 3) { //Miramos si el jugador esta en la carcel encerrado
+				if(jugadorActual.isCarcel() == true && jugadorActual.getContador() < 3) { //Miramos si el jugador esta en la carcel encerrado
 					
 					int opcionElegida2 = Util.pedirOpcionesJugador2();
 					
@@ -165,7 +160,7 @@ public class Partida {
 								int prueba[] = Util.dados();
 								if(prueba[1] == prueba[2]) {
 									System.out.println("Estas libre de la carcel, en el siguiente turno");
-									jugadorActual.Carcel = false;
+									jugadorActual.setCarcel(false);
 								}else {
 									System.out.println("Mala suerte, la proxima sera");
 								}
@@ -174,10 +169,10 @@ public class Partida {
 								Fichero.exportarFichero(this.jugadores, this.cajaBanca, this.nombreJugadorActual, Tablero.getPropiedades());
 								break;
 							case 3:
-								if(jugadorActual.Targetalibre = true) {
+								if(jugadorActual.isTargetalibre() == true) {
 									System.out.println("Has usado la carta de suerte");
-									jugadorActual.Carcel = false;
-									jugadorActual.Targetalibre = false;
+									jugadorActual.setCarcel(false);
+									jugadorActual.setTargetalibre(false);
 								}else {
 									System.out.println("No tienes targeta");
 								}
@@ -191,12 +186,12 @@ public class Partida {
 							default:
 								break;
 					}
-					jugadorActual.contador ++;
+					jugadorActual.setContador(jugadorActual.getContador() + 1);
 					cambiarTurno();
 				}else {
-					if(jugadorActual.contador == 3) {
+					if(jugadorActual.getContador() == 3) {
 						System.out.println("Has salido de la carcel");
-						jugadorActual.contador = 0;
+						jugadorActual.setContador(0);
 						System.out.println("");
 					}
 					int opcionElejida = Util.pedirOpcionesJugador();
@@ -234,7 +229,7 @@ public class Partida {
 									if(tirada3[1] == tirada3[2]) {
 										jugadorActual.nuevaPosicion(11);
 										System.out.println("Vas a la carcel");
-										jugadorActual.Carcel = true;
+										jugadorActual.setCarcel(true);
 									}
 								}
 							}
