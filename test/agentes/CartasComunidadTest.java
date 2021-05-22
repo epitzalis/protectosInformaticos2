@@ -2,31 +2,16 @@ package agentes;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CartasComunidadTest {
+	
 	private Jugador jugador;
 	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		//jugadorPrueba = new agentes.Jugador("hola", 200, 0, null, false, false, 0);
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
 	@Before
 	public void setUp() throws Exception {
 		jugador = new agentes.Jugador("Jugador 1", 200, 0, null, false, false, 0);
-	}
-
-	@After
-	public void tearDown() throws Exception {
 	}
 
 	@Test

@@ -7,7 +7,6 @@ import agentes.Tablero;
 import agentes.Suerte;
 import utiles.Util;
 
-
 public class Partida {
 
 	private String nombreJugadorActual = "Jugador 1";

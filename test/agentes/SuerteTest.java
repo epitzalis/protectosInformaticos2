@@ -1,44 +1,16 @@
 package agentes;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class SuerteTest {
 	
 	private Jugador jugador;
-	
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
 	@Before
 	public void setUp() throws Exception {
-		jugador = new agentes.Jugador("Jugador 1", 200, 0, null, false, false, 0);
+		jugador = new Jugador("Jugador 1", 200, 0, null, false, false, 0);
 	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-//	@Test
-//	public void testLlamarSuerte() {
-//		int dineroInicial = jugador.getDinero();
-//		int i = 0;
-//		while (i < 100) {
-//			Suerte.llamarSuerte(jugador);
-//		}
-//		assert(jugador.getDinero() != dineroInicial);
-//	}
 
 	@Test
 	public void testSalida() {
@@ -50,72 +22,103 @@ public class SuerteTest {
 
 	@Test
 	public void testUltima() {
-		fail("Not yet implemented");
+		Suerte.ultima(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionNueva == 40);
 	}
 
 	@Test
 	public void testPrime() {
-		fail("Not yet implemented");
+		Suerte.prime(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionNueva == 2);
 	}
 
 	@Test
 	public void testRara() {
-		fail("Not yet implemented");
+		int posicionInicial = jugador.getPosicion();
+		Suerte.rara(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionInicial != posicionNueva);
 	}
 
 	@Test
 	public void testEstacion() {
-		fail("Not yet implemented");
+		int posicionInicial = jugador.getPosicion();
+		Suerte.estacion(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionInicial != posicionNueva);
 	}
 
 	@Test
 	public void testDividendo() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		Suerte.dividendo(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testLcarcel() {
-		fail("Not yet implemented");
+		Suerte.Lcarcel(jugador);
+		assert(jugador.isTargetalibre());
 	}
 
 	@Test
 	public void testRetro() {
-		fail("Not yet implemented");
+		int posicionInicial = jugador.getPosicion();
+		Suerte.retro(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionInicial != posicionNueva);
 	}
 
 	@Test
 	public void testVeCarcel() {
-		fail("Not yet implemented");
+		int posicionInicial = jugador.getPosicion();
+		Suerte.veCarcel(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionInicial != posicionNueva);
+		assert(jugador.isCarcel());
 	}
 
 	@Test
 	public void testReforma() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		Suerte.reforma(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial == dineroFinal);
 	}
 
 	@Test
 	public void testImpuesto() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		Suerte.impuesto(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testPriEsta() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testCo50() {
-		fail("Not yet implemented");
+		int posicionInicial = jugador.getPosicion();
+		Suerte.priEsta(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionInicial != posicionNueva);
 	}
 
 	@Test
 	public void testGana() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		Suerte.gana(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testGana2() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		Suerte.gana2(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 }

@@ -48,23 +48,21 @@ public class Suerte {
 
 	public static void salida(Jugador jugadorActual){
 		
-			jugadorActual.setPosicion(1);
-			System.out.println("Mueve a la casilla de salida");
-			jugadorActual.aumentarDinero(200);
-			System.out.println("Has pasado por la salida y cobras 200");
+		jugadorActual.setPosicion(1);
+		System.out.println("Mueve a la casilla de salida");
+		jugadorActual.aumentarDinero(200);
+		System.out.println("Has pasado por la salida y cobras 200");
 			
 	}
 	//2
 	public static void ultima(Jugador jugadorActual) {
-		
-			jugadorActual.setPosicion(40);
-			System.out.println("Mueve hasta la ultima propiedad del tablero");
+		jugadorActual.setPosicion(40);
+		System.out.println("Mueve hasta la ultima propiedad del tablero");
 	}
 	//3
 	public static void prime(Jugador jugadorActual) {
-			
-			jugadorActual.setPosicion(2);
-			System.out.println("Mueve hasta la primera propiedad del tablero");
+		jugadorActual.setPosicion(2);
+		System.out.println("Mueve hasta la primera propiedad del tablero");
 	}
 	//4
 	public static void rara(Jugador jugadorActual) {
@@ -116,7 +114,6 @@ public class Suerte {
 	}
 	//6
 	public static void dividendo(Jugador jugadorActual) {
-		
 		jugadorActual.aumentarDinero(50);
 		System.out.println("El banco paga un dividendo de 50€");
 	}
@@ -202,6 +199,6 @@ public class Suerte {
 	public static void gana2(Jugador jugadorActual) {
 		
 		jugadorActual.aumentarDinero(100);
-		System.out.println("Ganas una competici�n de crucigramas ganas 100€");
+		System.out.println("Ganas una competicion de crucigramas ganas 100€");
 	}
 }

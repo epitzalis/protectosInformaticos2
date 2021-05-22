@@ -1,9 +1,6 @@
 package utiles;
 
 import java.util.Scanner;
-
-import com.sun.net.httpserver.Authenticator.Result;
-
 import agentes.Jugador;
 import agentes.Tablero;
 

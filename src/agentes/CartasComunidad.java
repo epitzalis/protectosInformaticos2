@@ -1,8 +1,5 @@
 package agentes;
 
-import agentes.Jugador;
-import agentes.Casilla;
-import agentes.Tablero;
 import partida.Partida;
 
 public class CartasComunidad {
