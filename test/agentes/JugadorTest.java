@@ -9,116 +9,41 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class JugadorTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+	
+	private Jugador jugador;
 
 	@Before
 	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testJugador() {
-		fail("Not yet implemented");
+		jugador = new agentes.Jugador("Jugador 1", 1200, 0, null, false, false, 0);
 	}
 
 	@Test
 	public void testAumentarDinero() {
-		fail("Not yet implemented");
+		int dinero1 = jugador.getDinero();
+		jugador.aumentarDinero(50);
+		int dinero2 = jugador.getDinero();
+		assert(dinero1 != dinero2);
 	}
 
 	@Test
 	public void testDisminuirDinero() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMostrarDinero() {
-		fail("Not yet implemented");
+		int dinero1 = jugador.getDinero();
+		jugador.disminuirDinero(50);
+		int dinero2 = jugador.getDinero();
+		assert(dinero1 != dinero2);
 	}
 
 	@Test
 	public void testNuevaPosicion() {
-		fail("Not yet implemented");
+		int pos1 = jugador.getPosicion();
+		jugador.nuevaPosicion(5);
+		int pos2 = jugador.getPosicion();
+		assert(pos1 != pos2);
 	}
 
-	@Test
-	public void testMostrarPosicion() {
-		fail("Not yet implemented");
-	}
 
-	@Test
-	public void testGetNombre() {
-		fail("Not yet implemented");
-	}
 
-	@Test
-	public void testGetDinero() {
-		fail("Not yet implemented");
-	}
 
-	@Test
-	public void testGetPosicion() {
-		fail("Not yet implemented");
-	}
 
-	@Test
-	public void testGetcartas() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testIsTargetalibre() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetTargetalibre() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testIsCarcel() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetCarcel() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetContador() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetContador() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetDinero() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetPosicion() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetCartas() {
-		fail("Not yet implemented");
-	}
 
 }

@@ -9,61 +9,78 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CasillaTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+	
+	private Jugador jugador;
 
 	@Before
 	public void setUp() throws Exception {
+		jugador = new agentes.Jugador("Jugador 1", 1200, 0, null, false, false, 0);
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@Test 
+	public void testPropiedad() { 
+		String[] propiedad1 = Tablero.getPropiedad("2"); 
+		Casilla.propiedad("2", "Propiedad 1", jugador);
+		String[] propiedad2 = Tablero.getPropiedad("2"); 
+		assert(propiedad1[1] !=propiedad2[1]); 
 	}
-
-	@Test
-	public void testPropiedad() {
-		fail("Not yet implemented");
+	 
+	@Test 
+	public void testEstacion() { 
+		String[] propiedad1 = Tablero.getPropiedad("6"); 
+		Casilla.estacion("6", "Estacion 1", jugador);
+		String[] propiedad2 = Tablero.getPropiedad("6"); 
+		assert(propiedad1[1] != propiedad2[1]); 
 	}
-
-	@Test
-	public void testEstacion() {
-		fail("Not yet implemented");
-	}
+	 
 
 	@Test
 	public void testServicio() {
-		fail("Not yet implemented");
+		String[] propiedad1 = Tablero.getPropiedad("29");
+		Casilla.servicio("29", "Compania del agua", jugador, 0);
+		String[] propiedad2 = Tablero.getPropiedad("29");
+		assert(propiedad1[1] != propiedad2[1]);
 	}
 
 	@Test
 	public void testComprarPropiedad() {
-		fail("Not yet implemented");
+		int dinero1 = jugador.getDinero();
+		Casilla.comprarPropiedad("2", "Propiedad 1", jugador);
+		int dinero2 = jugador.getDinero();
+		assert(dinero1 != dinero2);
 	}
 
-	@Test
-	public void testPagarAlquilerPropiedad() {
-		fail("Not yet implemented");
+	
+	@Test public void testPagarAlquilerPropiedad() { 
+		int dinero1 = jugador.getDinero();
+		Casilla.pagarAlquilerPropiedad("4", "Propiedad 2", jugador);
+		int dinero2 = jugador.getDinero();
+		assert(dinero1 != dinero2);
 	}
+	 
 
 	@Test
 	public void testComprarEstacion() {
-		fail("Not yet implemented");
+		int dinero1 = jugador.getDinero();
+		Casilla.comprarEstacion("16", "Estacion 2", jugador);
+		int dinero2 = jugador.getDinero();
+		assert(dinero1 != dinero2);
 	}
 
 	@Test
 	public void testPagarAlquilerEstacion() {
-		fail("Not yet implemented");
+		int dinero1 = jugador.getDinero();
+		Casilla.pagarAlquilerEstacion("16", "Estacion 2", jugador);
+		int dinero2 = jugador.getDinero();
+		assert(dinero1 != dinero2);
 	}
 
 	@Test
 	public void testComprarServicio() {
-		fail("Not yet implemented");
+		int dinero1 = jugador.getDinero();
+		Casilla.comprarServicio("29", "Compania del agua", jugador);
+		int dinero2 = jugador.getDinero();
+		assert(dinero1 != dinero2);
 	}
 
 }

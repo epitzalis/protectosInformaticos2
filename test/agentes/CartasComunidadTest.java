@@ -14,90 +14,134 @@ public class CartasComunidadTest {
 		jugador = new agentes.Jugador("Jugador 1", 200, 0, null, false, false, 0);
 	}
 
-	@Test
-	public void testLlamarCaja() {
-		fail("Not yet implemented");
-	}
+	//@Test
+	//public void testLlamarCaja() {
+	//	fail("Not yet implemented");
+	//}
 
 	@Test
 	public void testSalida() {
-		fail("Not yet implemented");
+		CartasComunidad.salida(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionNueva == 1);
 	}
 
 	@Test
 	public void testErrorBanco() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.errorBanco(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testDentista() {
+		int dineroInicial = jugador.getDinero();
 		CartasComunidad.dentista(jugador);
-		assertTrue(jugador.getDinero()==150);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testDividendos() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.dividendos(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testLibreCarcel() {
-		fail("Not yet implemented");
+		boolean tarjetaInicio = jugador.isTargetalibre();
+		CartasComunidad.libreCarcel(jugador);
+		boolean tarjetaFinal = jugador.isTargetalibre();
+		assert(tarjetaInicio != tarjetaFinal);
 	}
 
 	@Test
-	public void testCarcel() {
-		fail("Not yet implemented");
+	public void testCarcelPosición() {
+		CartasComunidad.carcel(jugador);
+		int posicionNueva = jugador.getPosicion();
+		assert(posicionNueva == 11);
+	}
+	@Test
+	public void testCarcelIndice() {
+		CartasComunidad.carcel(jugador);
+		assert(jugador.isCarcel() == true);
 	}
 
-	@Test
-	public void testOpera() {
-		fail("Not yet implemented");
-	}
+	//@Test
+	//public void testOpera() {
+	//	fail("Not yet implemented");
+	//}
 
 	@Test
 	public void testDividendo() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.dividendo(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testDevoImp() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.devoImp(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
-	@Test
-	public void testCumple() {
-		fail("Not yet implemented");
-	}
+	//@Test
+	//public void testCumple() {
+	//	fail("Not yet implemented");
+	//}
 
 	@Test
 	public void testLoteria() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.loteria(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testMulta() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.multa(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testEscola() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.escola(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testConsultor() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.consultor(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testReparacion() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.reparacion(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial == dineroFinal);
 	}
 
 	@Test
 	public void testPremio() {
-		fail("Not yet implemented");
+		int dineroInicial = jugador.getDinero();
+		CartasComunidad.premio(jugador);
+		int dineroFinal = jugador.getDinero();
+		assert(dineroInicial != dineroFinal);
 	}
 
 }
