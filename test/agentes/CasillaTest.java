@@ -8,38 +8,50 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import partida.Partida;
+import utiles.Util;
+
 public class CasillaTest {
 	
 	private Jugador jugador;
+	private Jugador jugador2;
+	String[][] propiedades= Tablero.getPropiedades();
+	String[][] casillas = Tablero.getCasillas();
 
 	@Before
 	public void setUp() throws Exception {
-		jugador = new agentes.Jugador("Jugador 1", 1200, 0, null, false, false, 0);
+		jugador = new Jugador("jugador 1", 1200, 0, null, false, false, 0);
+		jugador2 = new Jugador("jugador 2", 1200, 0, null, false, false, 0);
+		Partida.jugadores = new Jugador[1];
+		Partida.jugadores[0] = jugador;
+		//Partida.jugadores[1] = jugador2;
+		//propiedades[15][1]= jugador2.getNombre();
+		
 	}
 
 	@Test 
 	public void testPropiedad() { 
-		String[] propiedad1 = Tablero.getPropiedad("2"); 
+		int dinero1 = jugador.getDinero(); 
 		Casilla.propiedad("2", "Propiedad 1", jugador);
-		String[] propiedad2 = Tablero.getPropiedad("2"); 
-		assert(propiedad1[1] !=propiedad2[1]); 
+		int dinero2 = jugador.getDinero(); 
+		assert(dinero1 != dinero2); 
 	}
 	 
 	@Test 
 	public void testEstacion() { 
-		String[] propiedad1 = Tablero.getPropiedad("6"); 
+		int dinero1 = jugador.getDinero();
 		Casilla.estacion("6", "Estacion 1", jugador);
-		String[] propiedad2 = Tablero.getPropiedad("6"); 
-		assert(propiedad1[1] != propiedad2[1]); 
+		int dinero2 = jugador.getDinero(); 
+		assert(dinero1 != dinero2); 
 	}
 	 
 
 	@Test
 	public void testServicio() {
-		String[] propiedad1 = Tablero.getPropiedad("29");
+		int dinero1 = jugador.getDinero(); 
 		Casilla.servicio("29", "Compania del agua", jugador, 0);
-		String[] propiedad2 = Tablero.getPropiedad("29");
-		assert(propiedad1[1] != propiedad2[1]);
+		int dinero2 = jugador.getDinero(); 
+		assert(dinero1 != dinero2); 
 	}
 
 	@Test
@@ -58,7 +70,6 @@ public class CasillaTest {
 		assert(dinero1 != dinero2);
 	}
 	 
-
 	@Test
 	public void testComprarEstacion() {
 		int dinero1 = jugador.getDinero();
@@ -72,7 +83,7 @@ public class CasillaTest {
 		int dinero1 = jugador.getDinero();
 		Casilla.pagarAlquilerEstacion("16", "Estacion 2", jugador);
 		int dinero2 = jugador.getDinero();
-		assert(dinero1 != dinero2);
+		assert(dinero1 == dinero2);
 	}
 
 	@Test
