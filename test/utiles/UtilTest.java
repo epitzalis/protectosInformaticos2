@@ -10,7 +10,6 @@ public class UtilTest {
 		assert(datos != null);
 		assert(datos[0] > 0);
 		assert(datos[1] > 0);
-		assert(datos[2] > 1);
 	}
 
 }

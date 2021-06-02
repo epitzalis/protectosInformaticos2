@@ -59,7 +59,7 @@ public class CartasComunidadTest {
 	}
 
 	@Test
-	public void testCarcelPosición() {
+	public void testCarcelPosicion() {
 		CartasComunidad.carcel(jugador);
 		int posicionNueva = jugador.getPosicion();
 		assert(posicionNueva == 11);
