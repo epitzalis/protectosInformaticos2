@@ -1,15 +1,10 @@
 package agentes;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class JugadorTest {
-	
+
 	private Jugador jugador;
 
 	@Before
@@ -22,7 +17,7 @@ public class JugadorTest {
 		int dinero1 = jugador.getDinero();
 		jugador.aumentarDinero(50);
 		int dinero2 = jugador.getDinero();
-		assert(dinero1 != dinero2);
+		assert (dinero1 != dinero2);
 	}
 
 	@Test
@@ -30,7 +25,7 @@ public class JugadorTest {
 		int dinero1 = jugador.getDinero();
 		jugador.disminuirDinero(50);
 		int dinero2 = jugador.getDinero();
-		assert(dinero1 != dinero2);
+		assert (dinero1 != dinero2);
 	}
 
 	@Test
@@ -38,12 +33,7 @@ public class JugadorTest {
 		int pos1 = jugador.getPosicion();
 		jugador.nuevaPosicion(5);
 		int pos2 = jugador.getPosicion();
-		assert(pos1 != pos2);
+		assert (pos1 != pos2);
 	}
-
-
-
-
-
 
 }

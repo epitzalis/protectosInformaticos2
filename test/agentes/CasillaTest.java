@@ -1,21 +1,14 @@
 package agentes;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
 import partida.Partida;
-import utiles.Util;
 
 public class CasillaTest {
-	
+
 	private Jugador jugador;
 	private Jugador jugador2;
-	String[][] propiedades= Tablero.getPropiedades();
+	String[][] propiedades = Tablero.getPropiedades();
 	String[][] casillas = Tablero.getCasillas();
 
 	@Before
@@ -33,7 +26,7 @@ public class CasillaTest {
 //		int dinero2 = jugador.getDinero(); 
 //		assert(dinero1 != dinero2); 
 //	}
-	 
+
 //	@Test 
 //	public void testEstacion() { 
 //		int dinero1 = jugador.getDinero();
@@ -41,7 +34,6 @@ public class CasillaTest {
 //		int dinero2 = jugador.getDinero(); 
 //		assert(dinero1 != dinero2); 
 //	}
-	 
 
 //	@Test
 //	public void testServicio() {
@@ -59,14 +51,14 @@ public class CasillaTest {
 //		assert(dinero1 != dinero2);
 //	}
 
-	
-	@Test public void testPagarAlquilerPropiedad() { 
+	@Test
+	public void testPagarAlquilerPropiedad() {
 		int dinero1 = jugador.getDinero();
 		Casilla.pagarAlquilerPropiedad("4", "Propiedad 2", jugador);
 		int dinero2 = jugador.getDinero();
-		assert(dinero1 != dinero2);
+		assert (dinero1 != dinero2);
 	}
-	 
+
 //	@Test
 //	public void testComprarEstacion() {
 //		int dinero1 = jugador.getDinero();

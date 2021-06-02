@@ -6,7 +6,7 @@ import org.junit.Test;
 import agentes.Jugador;
 
 public class PartidaTest {
-	
+
 	private Jugador jugador;
 	private String nombreJugador = "Jugador 1";
 
@@ -22,7 +22,7 @@ public class PartidaTest {
 		int dineroInicial = jugador.getDinero();
 		Partida.aumentarDineroJugador(nombreJugador, 50);
 		int dineroFinal = jugador.getDinero();
-		assert((dineroInicial + 50) == dineroFinal);
+		assert ((dineroInicial + 50) == dineroFinal);
 	}
 
 	@Test
@@ -30,7 +30,7 @@ public class PartidaTest {
 		int dineroInicial = jugador.getDinero();
 		Partida.disminuirDineroJugador(nombreJugador, 50);
 		int dineroFinal = jugador.getDinero();
-		assert((dineroInicial - 50) == dineroFinal);
+		assert ((dineroInicial - 50) == dineroFinal);
 	}
 
 }

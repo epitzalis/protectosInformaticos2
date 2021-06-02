@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class SuerteTest {
-	
+
 	private Jugador jugador;
 
 	@Before
@@ -17,21 +17,21 @@ public class SuerteTest {
 		int dineroInicial = jugador.getDinero();
 		Suerte.salida(jugador);
 		int dineroFinal = jugador.getDinero();
-		assert(dineroInicial != dineroFinal);
+		assert (dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testUltima() {
 		Suerte.ultima(jugador);
 		int posicionNueva = jugador.getPosicion();
-		assert(posicionNueva == 40);
+		assert (posicionNueva == 40);
 	}
 
 	@Test
 	public void testPrime() {
 		Suerte.prime(jugador);
 		int posicionNueva = jugador.getPosicion();
-		assert(posicionNueva == 2);
+		assert (posicionNueva == 2);
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class SuerteTest {
 		int posicionInicial = jugador.getPosicion();
 		Suerte.rara(jugador);
 		int posicionNueva = jugador.getPosicion();
-		assert(posicionInicial != posicionNueva);
+		assert (posicionInicial != posicionNueva);
 	}
 
 	@Test
@@ -47,7 +47,7 @@ public class SuerteTest {
 		int posicionInicial = jugador.getPosicion();
 		Suerte.estacion(jugador);
 		int posicionNueva = jugador.getPosicion();
-		assert(posicionInicial != posicionNueva);
+		assert (posicionInicial != posicionNueva);
 	}
 
 	@Test
@@ -55,13 +55,13 @@ public class SuerteTest {
 		int dineroInicial = jugador.getDinero();
 		Suerte.dividendo(jugador);
 		int dineroFinal = jugador.getDinero();
-		assert(dineroInicial != dineroFinal);
+		assert (dineroInicial != dineroFinal);
 	}
 
 	@Test
 	public void testLcarcel() {
 		Suerte.Lcarcel(jugador);
-		assert(jugador.isTargetalibre());
+		assert (jugador.isTargetalibre());
 	}
 
 	@Test
@@ -69,7 +69,7 @@ public class SuerteTest {
 		int posicionInicial = jugador.getPosicion();
 		Suerte.retro(jugador);
 		int posicionNueva = jugador.getPosicion();
-		assert(posicionInicial != posicionNueva);
+		assert (posicionInicial != posicionNueva);
 	}
 
 	@Test
@@ -77,8 +77,8 @@ public class SuerteTest {
 		int posicionInicial = jugador.getPosicion();
 		Suerte.veCarcel(jugador);
 		int posicionNueva = jugador.getPosicion();
-		assert(posicionInicial != posicionNueva);
-		assert(jugador.isCarcel());
+		assert (posicionInicial != posicionNueva);
+		assert (jugador.isCarcel());
 	}
 
 	@Test
@@ -86,7 +86,7 @@ public class SuerteTest {
 		int dineroInicial = jugador.getDinero();
 		Suerte.reforma(jugador);
 		int dineroFinal = jugador.getDinero();
-		assert(dineroInicial == dineroFinal);
+		assert (dineroInicial == dineroFinal);
 	}
 
 	@Test
@@ -94,7 +94,7 @@ public class SuerteTest {
 		int dineroInicial = jugador.getDinero();
 		Suerte.impuesto(jugador);
 		int dineroFinal = jugador.getDinero();
-		assert(dineroInicial != dineroFinal);
+		assert (dineroInicial != dineroFinal);
 	}
 
 	@Test
@@ -102,7 +102,7 @@ public class SuerteTest {
 		int posicionInicial = jugador.getPosicion();
 		Suerte.priEsta(jugador);
 		int posicionNueva = jugador.getPosicion();
-		assert(posicionInicial != posicionNueva);
+		assert (posicionInicial != posicionNueva);
 	}
 
 	@Test
@@ -110,7 +110,7 @@ public class SuerteTest {
 		int dineroInicial = jugador.getDinero();
 		Suerte.gana(jugador);
 		int dineroFinal = jugador.getDinero();
-		assert(dineroInicial != dineroFinal);
+		assert (dineroInicial != dineroFinal);
 	}
 
 	@Test
@@ -118,7 +118,7 @@ public class SuerteTest {
 		int dineroInicial = jugador.getDinero();
 		Suerte.gana2(jugador);
 		int dineroFinal = jugador.getDinero();
-		assert(dineroInicial != dineroFinal);
+		assert (dineroInicial != dineroFinal);
 	}
 
 }
